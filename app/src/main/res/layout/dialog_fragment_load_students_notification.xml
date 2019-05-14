@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/application_large_padding">
+
+        <TextView
+            android:id="@+id/dialog_fragment_load_students_notification_text_view_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/application_medium_margin"
+            android:layout_marginTop="@dimen/application_large_margin"
+            tools:text="Please select a CSV (comma-separated values) file with the following information on each line:"
+            android:layout_marginEnd="@dimen/application_medium_margin"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/application_text_size" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/application_medium_margin"
+            android:layout_marginEnd="@dimen/application_medium_margin"
+            tools:ignore="UseCompoundDrawables">
+
+            <TextView
+                android:id="@+id/dialog_fragment_load_students_notification_text_view_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/application_standard_margin"
+                android:textColor="@color/colorPrimaryDark"
+                tools:text="first name, last name"
+                android:textStyle="bold|italic"
+                android:textSize="@dimen/application_text_size" />
+
+            <ImageView
+                android:id="@+id/dialog_fragment_load_students_notification_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dialog_fragment_load_students_notification_info_image_margin_start"
+                android:layout_marginTop="@dimen/application_standard_margin"
+                android:contentDescription="@string/information_image_view_content_description"
+                app:srcCompat="@drawable/ic_info_outline_color_primary_24dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dialog_fragment_load_students_notification_text_view_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/application_medium_margin"
+            android:layout_marginTop="@dimen/application_standard_margin"
+            android:layout_marginEnd="@dimen/application_medium_margin"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/application_text_size" />
+
+        <CheckBox
+            android:id="@+id/dialog_fragment_load_students_notification_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/application_standard_margin"
+            android:layout_marginTop="@dimen/application_large_margin"
+            android:layout_marginEnd="@dimen/application_medium_margin"
+            android:text="@string/dialog_fragment_load_students_notification_checkbox_text"
+            android:textColor="@color/colorPrimaryLight"
+            android:textSize="@dimen/application_small_text_size"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+
+</ScrollView>

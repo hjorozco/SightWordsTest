@@ -1,0 +1,792 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
+
+    <!-- *** Main app strings *** -->
+    <string name="app_name">Sight Words Test</string>
+    <string name="yes_uppercase_text">YES</string>
+    <string name="no_uppercase_text">NO</string>
+    <string name="no_lowercase_text">no</string>
+    <string name="ok_text">OK</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="change_to_default_text">Change to default</string>
+    <string name="html_line_break">&lt;br/></string>
+    <string name="html_italics_open">&lt;i></string>
+    <string name="html_italics_close">&lt;/i></string>
+
+    <string name="test_type_text">&lt;i>&lt;b>%1$s test&lt;/b> &lt;small>&lt;font color=#%2$s>(%3$s words)&lt;/font>&lt;/small>&lt;/i></string>
+    <string name="test_type_for_students_test_result_fragment_text">&lt;i>&lt;b>%1$s tests&lt;/b> &lt;small>&lt;font color=#%2$s>(%3$s words)&lt;/font>&lt;/small>&lt;/i></string>
+    <string name="html_text_with_color">&lt;font color=#%1$s>%2$s&lt;/font></string>
+
+    <string name="all_radio_button_text">All</string>
+    <string name="dolch_radio_button_text">Dolch</string>
+    <string name="fry_radio_button_text">Fry</string>
+
+    <string name="pdf_radio_button_text">PDF</string>
+    <string name="csv_radio_button_text">CSV</string>
+
+    <string name="word_list_radio_button_text">Words list</string>
+    <string name="flash_cards_radio_button_text">Flash cards</string>
+
+    <string name="simple_radio_button_text">Simple</string>
+    <string name="detailed_radio_button_text">Detailed</string>
+
+    <string name="shared_file_page_number_text">p. %1$d</string>
+    <string name="lowercase_letter_s">s</string>
+    <string name="singular_possession_suffix">\'s</string>
+    <string name="plural_possession_suffix">s\'</string>
+
+    <string name="information_image_view_content_description">
+        Information icon
+    </string>
+
+    <string name="delete_icon_content_description"> Delete icon</string>
+
+    <!-- ********** MAIN ACTIVITY strings ********** -->
+    <string name="activity_main_label">Your class</string>
+
+    <string name="menu_title_with_color">&lt;font color=#%1$s&gt;%2$s&lt;/font&gt;</string>
+
+    <string name="menu_main_action_add_students_manually_title">Add student</string>
+
+    <string name="menu_main_action_sort_title">Sort students</string>
+    <string name="dialog_fragment_sort_students_by_first_name_text">First name</string>
+    <string name="dialog_fragment_sort_students_by_last_name_text">Last name</string>
+    <string name="dialog_fragment_sort_students_by_test_result_text">Test result</string>
+    <string name="dialog_fragment_sort_students_by_test_type_text">Test type</string>
+    <string name="menu_main_action_sort_by_first_name_confirmation">Students sorted by first name</string>
+    <string name="menu_main_action_sort_by_last_name_confirmation">Students sorted by last name</string>
+    <string name="menu_main_action_sort_by_test_results_confirmation">Students sorted by test result</string>
+    <string name="menu_main_action_sort_by_test_type_confirmation">Students sorted by test type</string>
+
+    <string name="sort_students_dialog_fragment_title">Sort students by</string>
+    <string name="sort_students_dialog_fragment_tag">sort_students_by</string>
+
+    <string name="menu_main_action_share_title">Share students\' results</string>
+    <string name="menu_main_action_share_csv_simple_chooser_title">Share results as a CSV file</string>
+    <string name="menu_main_action_share_csv_detailed_chooser_title">Share results as a CSV file including words not read correctly</string>
+    <string name="menu_main_action_share_pdf_simple_chooser_title">Share results as a PDF file</string>
+    <string name="menu_main_action_share_pdf_detailed_chooser_title">Share results as a PDF file including words not read correctly</string>
+
+    <string-array name="share_class_results_simple_csv_file_header_array">
+        <item>First name</item>
+        <item>Last name</item>
+        <item>Test</item>
+        <item>Last test date</item>
+        <item>Result</item>
+        <item>All words read correctly?</item>
+    </string-array>
+
+    <string-array name="share_class_results_detailed_csv_file_header_array">
+        <item>First name</item>
+        <item>Last name</item>
+        <item>Test</item>
+        <item>Last test date</item>
+        <item>Result</item>
+        <item>All words read correctly?</item>
+        <item>Words not read correctly</item>
+    </string-array>
+
+    <string name="menu_main_action_change_title">Change default test</string>
+    <string name="change_default_test_dialog_fragment_title">
+        @string/menu_main_action_change_title</string>
+    <string name="change_default_test_dialog_fragment_tag">dialog_fragment_change_default_test</string>
+
+    <string name="menu_main_action_delete_title">Delete all students</string>
+    <string name="menu_main_action_delete_confirmation_dialog_fragment_text">&lt;br/>You are going to delete &lt;b>all the students&lt;/b>
+        in your class and all their test results.&lt;br/>&lt;br/>Are your sure?&lt;br/>&lt;br/></string>
+    <string name="menu_main_action_delete_confirmation_dialog_fragment_title">@string/menu_main_action_delete_title</string>
+    <string name="menu_main_action_delete_confirmation_dialog_fragment_tag">delete_class</string>
+
+    <string name="menu_main_action_load_students_from_csv_title">Load students</string>
+
+    <string name="menu_main_action_download_title">Download resources</string>
+    <string name="menu_main_action_download_dialog_fragment_tag">download_resources</string>
+    <string name="menu_main_action_download_resources_on_other_device_chooser_title">
+        Share app resources web page link
+    </string>
+    <string name="menu_main_action_download_resources_on_other_device_share_subject">
+        Sight Words Test application resources web page link
+    </string>
+
+    <string name="menu_main_action_sight_words_info_title">Sight words info</string>
+    <string name="menu_main_action_help_title">Help</string>
+    <string name="menu_main_action_feedback_title">Feedback</string>
+    <string name="menu_main_action_donate_title">Donate</string>
+
+    <string name="menu_main_action_feedback_confirmation_dialog_fragment_text">&lt;br/>Your feedback will help me improve this app and add new features to it.
+        &lt;br/>&lt;br/>Would you like to &lt;b>send an email&lt;/b> with feedback for this app?&lt;br/>&lt;br/></string>
+    <string name="menu_main_action_feedback_confirmation_dialog_fragment_title">@string/menu_main_action_feedback_title</string>
+    <string name="menu_main_action_feedback_confirmation_dialog_fragment_tag">feedback</string>
+
+    <string name="menu_main_action_donate_confirmation_dialog_fragment_text">&lt;br/>This app is completely free for you to use.
+        &lt;br/>&lt;br/>If you find this app useful, would you consider making a &lt;b>donation&lt;/b> that can help me make more apps free and with no adds like this one?&lt;br/>&lt;br/></string>
+    <string name="menu_main_action_donate_confirmation_dialog_fragment_title">@string/menu_main_action_donate_title</string>
+    <string name="menu_main_action_donate_confirmation_dialog_fragment_tag">donate</string>
+
+    <string name="menu_main_action_create_sample_class_title">Create sample class</string>
+    <string name="create_sample_class_confirmation_dialog_fragment_text">&lt;br/>You will add 5 students with some test results to your class.&lt;br/>&lt;br/>
+        You can delete this sample class by going to the main menu and pressing &lt;i>Delete all students&lt;/i>.
+        &lt;br/>&lt;br/>Do you want to proceed?&lt;br/>&lt;br/></string>
+    <string name="create_sample_class_confirmation_dialog_fragment_title">@string/menu_main_action_create_sample_class_title</string>
+    <string name="create_sample_class_confirmation_dialog_fragment_tag">create_sample_class</string>
+
+    <string name="menu_main_action_about_title">About</string>
+
+    <string name="menu_action_mode_action_delete">Delete</string>
+
+    <string name="student_with_no_tests_text">No test results</string>
+    <string name="new_student_added_toast_text_1">%1$s %2$s added to your class</string>
+    <string name="new_student_added_toast_text_2">%1$s added to your class</string>
+    <string name="max_reached_message_text_1">&lt;br/>You have reached the maximum number of students in your
+        classroom &lt;i>(%1$d students)&lt;/i>.&lt;br/>&lt;br/></string>
+    <string name="max_reached_message_text_2">You have reached the maximum number of students in your
+        classroom &lt;i>(%1$d students)&lt;/i>.</string>
+    <string name="max_reached_message_title">Class full</string>
+    <string name="max_reached_message_tag">new_student_added_max_reached_message_tag</string>
+    <!-- Empty classroom messages -->
+    <string name="empty_classroom_message_widget">Your class is empty</string>
+    <string name="empty_classroom_message_1">&lt;a href="Add">&lt;i>Add&lt;/i>&lt;/a> or &lt;a href="Load">&lt;i>load&lt;/i>&lt;/a> students to your class.
+        </string>
+    <string name="empty_classroom_message_2">You can also &lt;a href="Sample">&lt;i>create a sample class&lt;/i>&lt;/a> to see
+        how the app works before adding your own students.
+        &lt;br/>&lt;br/>For instructions on how to use the app check the &lt;a href="Help">&lt;i>Help&lt;/i>&lt;/a> section.
+        </string>
+    <string name="activity_main_image_content_description">Teacher listening to her students</string>
+    <string name="activity_main_sorted_by_first_name_message">Sorted by first name</string>
+    <string name="activity_main_sorted_by_last_name_message">Sorted by last name</string>
+    <string name="activity_main_sorted_by_test_result_message">Sorted by test result</string>
+    <string name="activity_main_sorted_by_test_type_message">Sorted by test type</string>
+    <string name="activity_main_sorted_by_message">%1$d student%2$s. %3$s</string>
+
+    <string name="activity_main_not_loaded_reason_student_duplicated">duplicated</string>
+    <string name="activity_main_not_loaded_reason_no_first_name">no first name</string>
+    <string name="activity_main_not_loaded_reason_no_last_name">no last name</string>
+    <string name="activity_main_not_loaded_reason_no_first_name_no_last_name">No first and last name</string>
+    <string name="activity_main_not_loaded_reason_max_size_exceeded">class max size exceeded</string>
+
+    <string name="action_mode_toolbar_title">%1$d selected</string>
+    <string name="list_item_swipe_to_delete_text">Delete</string>
+
+    <!-- Concatenation strings -->
+    <string name="student_complete_name">%1$s %2$s</string>
+    <string name="student_complete_name_with_html_format">&lt;b>%1$s %2$s&lt;/b></string>
+    <string name="test_type_and_last_date_for_no_default_test">%1$s (%2$d words). %3$s</string>
+    <string name="activity_main_csv_file_test_type_text">%1$s (%2$d words)</string>
+
+    <string name="activity_main_action_save_storage_error">ERROR! External storage not available. Please mount it.</string>
+    <string name="activity_main_action_share_file_creation_error">ERROR! File to share could not be created.</string>
+    <string name="activity_main_action_load_file_read_error">ERROR! CSV file not read. No students added.</string>
+
+    <string name="activity_main_dialog_fragment_error">Error. Try again later.</string>
+    <string name="activity_main_test_information_dialog_fragment_tag">last_test_information</string>
+
+    <string name="share_student_results_simple_text">_ResultsSimple</string>
+    <string name="share_student_results_detailed_text">_ResultsDetailed</string>
+    <string name="share_class_results_simple_text">_Results_Simple</string>
+    <string name="share_class_results_detailed_text">_Results_Detailed</string>
+    <string name="share_class_results_text">Class</string>
+
+    <string name="share_class_results_dialog_fragment_title">
+        @string/menu_main_action_share_title</string>
+    <string name="share_class_results_dialog_fragment_tag">dialog_fragment_share_class_results</string>
+
+    <string name="menu_main_action_delete_student_deleted">Student %1$s %2$s deleted</string>
+    <string name="activity_main_students_deleted_text">%1$d students deleted</string>
+
+    <string name="menu_main_action_feedback_email_address">mailto:hjorozco@hotmail.com</string>
+    <string name="menu_main_action_feedback_email_subject">Sight Words Test app feedback.</string>
+    <string name="menu_main_action_feedback_email_body">Please write your feedback here. Thank you!\n\n\n\n</string>
+    <string name="menu_main_action_feedback_no_email_app_error">You need an email app installed on your device to send feedback.</string>
+
+    <string name="menu_main_action_donate_website_url">https://hectorjorozco.weebly.com/sight-words-test-app-donation.html</string>
+    <string name="menu_main_action_donate_no_browser_app_error">You need a browser app installed on your device to see the donation webpage.</string>
+
+    <!-- ********** TEST ACTIVITY strings ********** -->
+    <string name="activity_test_no_test_message">
+        There was an error and there are no words to show. Please try again.
+    </string>
+    <string name="activity_test_image_content_description">Teacher holding a smartphone to test</string>
+    <string name="activity_test_fab_tooltip">Save test result</string>
+
+    <string name="menu_test_action_mark_words_title">Mark words not read correctly on last test</string>
+    <string name="menu_test_action_unmark_words_title">Unmark words not read correctly on last test</string>
+    <string name="menu_test_action_info_title">Test info</string>
+    <string name="menu_test_action_help_title">Test help</string>
+
+    <string name="test_info_dialog_fragment_text">&lt;br/&gt;Testing &lt;b>%1$s %2$s&lt;/b>.&lt;br/&gt;&lt;br/&gt;
+        &lt;b>%3$d&lt;/b> of %4$d words read correctly.&lt;br/>&lt;br/>
+    </string>
+    <string name="test_info_dialog_fragment_title">@string/menu_test_action_info_title</string>
+    <string name="test_info_dialog_fragment_tag">activity_test_help</string>
+
+    <string name="test_help_dialog_fragment_text">
+        &lt;br/&gt;Press any word that the student does not read correctly to mark it red. Press the
+        word again to unmark it if the student reads it correctly.&lt;br/&gt;&lt;br/&gt;
+        When done, press the check mark at the bottom of the screen to save the test result.&lt;br/&gt;&lt;br/&gt;
+        You can mark or unmark the words not read correctly on the student\'s last test by pressing
+        the grid icon in the menu.&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="test_help_dialog_fragment_title">@string/menu_test_action_help_title</string>
+    <string name="test_help_dialog_fragment_tag">activity_test_help</string>
+
+    <string name="activity_test_saved_message">Test result saved</string>
+
+    <!-- ********** FRAGMENT ADD STUDENT strings ********** -->
+    <string name="fragment_add_student_toolbar_title">@string/menu_main_action_add_students_manually_title</string>
+    <string name="fragment_add_student_first_name_hint">First Name</string>
+    <string name="fragment_add_student_last_name_hint">Last Name</string>
+    <string name="fragment_add_student_first_name_error_message">Please provide a first name</string>
+    <string name="fragment_add_student_last_name_error_message">Please provide a last name</string>
+    <string name="fragment_add_student_test_type_message">&lt;b>&lt;i>%1$s test &lt;/i>&lt;/b>
+        &lt;small>&lt;font color=#%2$s>(%3$d words)&lt;/font>&lt;/small></string>
+    <string name="fragment_add_student_image_content_description">Girl with big smile in classroom</string>
+    <string name="change_student_test_dialog_fragment_title">
+        @string/menu_add_student_action_change_title</string>
+    <string name="change_student_test_dialog_fragment_tag">dialog_fragment_change_student_test</string>
+    <string name="menu_add_student_action_change_title">Change student test</string>
+    <string name="fragment_add_student_checkbox_text">Add other student after this one.</string>
+
+
+    <!-- ********** FRAGMENT STUDENT TEST RESULTS strings ********** -->
+    <string name="series_title">Dolch Words test results</string>
+    <string name="fragment_student_test_results_image_content_description">
+        Teacher planning based on test results from smartphone
+    </string>
+    <string name="fragment_student_test_results_fab_tooltip">New test</string>
+    <string name="fragment_student_test_results_test_info_dialog_fragment_tag">student_test_information</string>
+
+    <string name="menu_student_test_results_action_show_graph_title">Show graph</string>
+    <string name="menu_student_test_results_action_hide_graph_title">Hide graph</string>
+    <string name="menu_student_test_results_action_share_title">Share test results</string>
+    <string name="menu_student_test_results_action_delete_title">Delete all test results</string>
+    <string name="menu_student_test_results_action_delete_old_results_title">Delete oldest test results</string>
+    <string name="menu_student_test_results_action_edit_title">Change student name</string>
+    <string name="menu_student_test_results_action_change_title">Change student test</string>
+
+    <string name="share_student_results_dialog_fragment_title">@string/menu_student_test_results_action_share_title</string>
+    <string name="share_student_results_dialog_fragment_tag">share_student_results_dialog_fragment</string>
+
+    <string-array name="share_student_results_simple_csv_file_header_array">
+        <item>Date</item>
+        <item>Result</item>
+        <item>All words read correctly?</item>
+    </string-array>
+
+    <string-array name="share_student_results_detailed_csv_file_header_array">
+        <item>Date</item>
+        <item>Result</item>
+        <item>All words read correctly?</item>
+        <item>Words not read correctly</item>
+    </string-array>
+
+    <string name="menu_student_test_results_action_delete_confirmation_dialog_fragment_text">
+        &lt;br/&gt;You are going to delete &lt;b>all test results&lt;/b> from &lt;b>%1$s %2$s&lt;/b>.&lt;br/&gt;&lt;br/&gt;Are you sure?&lt;br/&gt;&lt;br/&gt;</string>
+    <string name="menu_student_test_results_action_delete_confirmation_dialog_fragment_title">
+        @string/menu_student_test_results_action_delete_title</string>
+    <string name="menu_student_test_results_action_delete_confirmation_dialog_fragment_tag">delete_tests</string>
+
+    <string name="menu_student_test_results_action_delete_oldest_student_results_dialog_fragment_tag">delete_oldest_students</string>
+
+    <string name="menu_student_test_results_action_edit_dialog_fragment_title">
+        @string/menu_student_test_results_action_edit_title</string>
+    <string name="menu_student_test_results_action_edit_dialog_fragment_tag">edit_student_name</string>
+
+    <string name="menu_student_test_results_action_edit_student_not_changed_message">Student name kept the same</string>
+    <string name="menu_student_test_results_action_edit_student_changed_message">Student name was changed</string>
+    <string name="menu_student_test_results_action_edit_student_already_on_table_message">Another student in your class has this name</string>
+
+    <string name="menu_student_test_results_action_delete_all_tests_deleted">Tests results deleted</string>
+    <string name="menu_student_test_results_action_delete_test_deleted">Test result deleted</string>
+
+    <string name="menu_student_test_results_action_show_hide_graph_will_be_show_message">Graph will be shown with 2 or more test results</string>
+
+    <string name="fragment_student_test_results_no_tests_text">No tests</string>
+    <string name="fragment_student_test_results_number_of_tests_text">%1$d test%2$s</string>
+
+    <string name="fragment_student_test_results_max_number_of_tests_text">The maximum number of tests per student is %1$d.</string>
+    <string name="fragment_student_test_results_max_number_of_tests_reached_text">&lt;br/>You have reached the maximum number of tests per student
+        &lt;i>(%1$d tests)&lt;/i>.&lt;br/>&lt;br/></string>
+    <string name="fragment_student_test_results_max_number_of_tests_reached_title">Max number of tests reached</string>
+    <string name="fragment_student_test_results_max_number_of_tests_reached_tag">max_number_of_tests_reached</string>
+    <string name="fragment_student_test_results_share_pdf_title_second_line">%1$s. %2$d test%3$s</string>
+    <string name="fragment_student_test_results_tests_deleted_confirmation_message">%1$d test results deleted</string>
+
+    <string name="fragment_student_test_results_no_students_instructions">Press the plus button to add a new test for this student.</string>
+
+    <!-- ********** FRAGMENT HELP strings ********** -->
+    <string name="fragment_help_image_content_description">Wood signs</string>
+    <string name="fragment_help_tool_bar_title">Help</string>
+    <string name="fragment_help_text">
+        &lt;br/&gt;This app helps you test your students’ recognition of the two most commonly used &lt;b>Sight words&lt;/b>
+        lists: &lt;a href="Dolch">&lt;i>Dolch words&lt;/i>&lt;/a> and &lt;a href="Fry">&lt;i>Fry words&lt;/i>&lt;/a>.&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+        &lt;b>Default test.&lt;/b>&lt;br/&gt;&lt;br/&gt;
+        All students in your class will be tested by default on one type of test but you can choose a
+        different type of test for any particular student.&lt;br/&gt;
+        Students tested on the default test will be displayed in blue. Students tested on a test different that the default test will be shown in brown.&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+        &lt;b>How to administer tests.&lt;/b>&lt;br/&gt;&lt;br/&gt;
+        • Add students to your class.&lt;br/&gt;
+        • Download and print the word list of the test you are going to administer.&lt;br/&gt;
+        • Press the student you are going to test.&lt;br/&gt;
+        • Press the plus button to add a new test.&lt;br/&gt;
+        • Let the student read the words on the words list you printed, and press any word that the
+        student does not read correctly. Once finished press the check mark button to save the test result.&lt;br/&gt;&lt;br/&gt;&lt;br/>
+        &lt;b>How results are displayed.&lt;/b>&lt;br/&gt;&lt;br/&gt;
+        The main screen of the app will display the number of words read correctly and the date of
+        the last test administered to the students.&lt;br/&gt;
+        When you press on a particular student you will see all the tests administered to him.&lt;br/&gt;
+        When a student reads all words correctly on a test, this result will be displayed with a colored background.&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+        &lt;b>App Widget.&lt;/b>&lt;br/&gt;&lt;br/&gt;
+        This app has a Widget that displays all the information found on the main screen of the app.&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+        &lt;b>How information is saved.&lt;/b>&lt;br/&gt;&lt;br/&gt;
+        All the information you save on the app is stored on a database in your device and it is accessible only by this app.&lt;br/&gt;&lt;br/&gt;
+    </string>
+
+
+    <!-- Shared Preferences file strings -->
+    <string name="shared_preferences_name">AppSharedPreferences</string>
+
+    <string name="students_order_shared_preference_key">StudentsOrder</string>
+    <string name="number_of_students_shared_preference_key">NumberOfStudents</string>
+    <string name="test_selection_shared_preference_key">TestSelection</string>
+    <string name="show_load_students_info_key">ShowLoadStudentsInfo</string>
+
+
+    <!-- ChangeTestDialogFragment strings -->
+    <string name="change_test_dialog_fragment_alert_message">All previous results for this student will be deleted if you change the students test.</string>
+    <string name="change_test_dialog_fragment_student_test_not_changed_message">Student test kept the same</string>
+    <string name="change_test_dialog_fragment_student_test_changed_message">Student test changed</string>
+    <string name="change_test_dialog_fragment_default_test_not_changed_message">Default test kept the same</string>
+    <string name="change_test_dialog_fragment_default_test_changed_message">Default test changed</string>
+
+
+    <!-- LoadStudentsNotificationDialogFragment-->
+    <string name="dialog_fragment_load_students_notification_text_1">
+        Please select a &lt;b>CSV&lt;/b> (comma-separated values) file with the following information on each line:
+    </string>
+    <string name="dialog_fragment_load_student_notification_text_2">first name, last name</string>
+    <string name="dialog_fragment_load_student_notification_text_3">The maximum number of students in your class is %1$d.</string>
+    <string name="dialog_fragment_load_students_notification_checkbox_text">
+        Don\'t show this message again.
+    </string>
+    <string name="dialog_fragment_load_students_notification_title">Load students</string>
+    <string name="dialog_fragment_load_students_notification_tag">load_students</string>
+    <string name="dialog_fragment_load_students_notification_info_text">
+        &lt;br/&gt;You can create and edit a &lt;b>CSV&lt;/b> (comma-separated values) file on most spreadsheets programs such as
+        &lt;i>Microsoft Excel&lt;/i> or &lt;i>Google Spreadsheets&lt;/i> or in any plain text editor like the &lt;i>Windows Notepad&lt;/i>.&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="dialog_fragment_load_students_notification_info_tag">load_students_info</string>
+
+
+    <!-- LoadStudentsResultDialogFragment String -->
+    <string name="dialog_fragment_load_students_result_title">Load students result</string>
+    <string name="dialog_fragment_load_students_result_tag">load_students_result</string>
+    <string name="dialog_fragment_load_students_result_number_of_students_loaded_text">
+        %1$d student%2$s loaded.
+    </string>
+    <string name="dialog_fragment_load_students_result_number_of_students_not_loaded_text">
+        %1$d student%2$s not loaded.
+    </string>
+    <string name="dialog_fragment_students_loaded_info_title">%1$d students loaded</string>
+    <string name="dialog_fragment_students_not_loaded_info_title">%1$d students not loaded</string>
+    <string name="dialog_fragment_load_students_result_check_box_text">Show message about CSV
+        file format when pressing the load students option.</string>
+
+    <!-- ********** ConfirmationDialogFragment Strings ********** -->
+    <string name="confirmation_dialog_fragment_delete_test_text">
+        &lt;br/&gt;You are going to delete &lt;b>this test&lt;/b> from &lt;b>%1$s %2$s&lt;/b>:&lt;br/&gt;&lt;br/&gt;%3$s&lt;br/&gt;&lt;i>%4$s&lt;/i>&lt;br/&gt;&lt;b>%5$s words read correctly&lt;/b>.
+        &lt;br/&gt;&lt;br/&gt;Are you sure?&lt;br/&gt;&lt;br/&gt;
+    </string>
+
+    <string name="confirmation_dialog_fragment_delete_test_title">Delete test</string>
+    <string name="confirmation_dialog_fragment_delete_test_tag">delete_test</string>
+
+
+    <!-- ********** ShareDialogFragment Strings ********** -->
+    <string name="share_dialog_fragment_info_text_1">
+        &lt;br/&gt;A &lt;b>PDF&lt;/b> file provides an electronic image of text and graphics
+        that looks like a printed document and can be viewed, printed, and electronically transmitted.
+        Multiple programs can use PDFs for example &lt;i>Adobe Acrobat Reader&lt;/i> and &lt;i>Foxit Reader&lt;/i>.&lt;br/&gt;&lt;br/&gt;
+        A &lt;b>CSV&lt;/b> (comma-separated values) file allows data to be saved in a tabular
+        format that can be used with most spreadsheets program, such as &lt;i>Microsoft Excel&lt;/i> or &lt;i>Google Spreadsheets&lt;/i>.&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="share_dialog_fragment_info_text_2">
+        &lt;br/>A &lt;b>simple&lt;/b> file will contain the information you see on the screen.&lt;br/&gt;&lt;br/&gt;
+        A &lt;b>detailed&lt;/b> file will contain the same information of a simple file plus words not read correctly.&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="share_dialog_fragment_info_tag_1">share_dialog_fragment_info_tag_1</string>
+    <string name="share_dialog_fragment_info_tag_2">share_dialog_fragment_info_tag_2</string>
+
+    <!-- ********** SortStudentDialogFragment Strings ********** -->
+    <string name="sort_students_dialog_fragment_info_text">
+        &lt;br/&gt;&lt;b>First name&lt;/b> option will sort students by first name then by last name.&lt;br/&gt;&lt;br/&gt;
+        &lt;b>Last name&lt;/b> option will sort students by last name then by first name.&lt;br/&gt;&lt;br/&gt;
+        &lt;b>Test result&lt;/b> option will sort students by test type then by test result then by last name and finally by first name.&lt;br/&gt;&lt;br/&gt;
+        &lt;b>Test type&lt;/b> option will sort students by test type then by last name and finally by first name.&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="sort_students_dialog_fragment_info_tag">sort_students_dialog_fragment_info_tag</string>
+
+    <!-- ********** DownloadResourcesDialogFragment strings ********** -->
+    <string name="download_resources_dialog_fragment_info_text">
+        &lt;br/&gt;A &lt;b>words list&lt;/b> can be printed or shown on a screen for the student to read
+        its words while you use this app to mark the words he does not read correctly.&lt;br/&gt;&lt;br/&gt;
+        &lt;b>Flash cards&lt;/b> can be used to let the student practice reading the words of a particular test.&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="download_resources_dialog_fragment_info_tag">download_resources_dialog_fragment_info_tag</string>
+
+    <!-- Delete students confirmation dialog fragment strings -->
+    <string name="delete_students_confirmation_dialog_fragment_text">
+        &lt;br/>You are going to delete &lt;b>%1$d student%2$s&lt;/b> and all the student%3$s test results.&lt;br/&gt;&lt;br/&gt;Are you sure?&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="delete_students_confirmation_dialog_fragment_title">Delete all students</string>
+    <string name="delete_students_confirmation_dialog_fragment_tag">delete_students</string>
+
+    <!-- Delete tests confirmation dialog fragment strings -->
+    <string name="delete_tests_confirmation_dialog_fragment_text">
+        &lt;br/&gt;You are going to delete &lt;b>%1$d test%2$s&lt;/b> from &lt;b>%3$s %4$s&lt;/b>.&lt;br/&gt;&lt;br/&gt;Are you sure?&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="delete_tests_confirmation_dialog_fragment_title">Delete tests</string>
+    <string name="delete_tests_confirmation_dialog_fragment_tag">delete_tests</string>
+
+    <!-- ********** Delete oldest student results dialog fragment string ********** -->
+    <string name="dialog_fragment_delete_oldest_student_results_text_view_text">Please enter the number of oldest tests to delete from the &lt;b>%1$d tests&lt;/b> that &lt;b>%2$s&lt;/b> has:</string>
+    <string name="dialog_fragment_delete_oldest_student_results_edit_text_message">Maximum %1$d</string>
+    <string name="dialog_fragment_delete_oldest_student_results_info_message">
+        &lt;br/&gt;This action will &lt;b>delete&lt;/b> the number of tests indicated starting from the &lt;b>oldest one&lt;/b>.&lt;br/>&lt;br/>
+        The &lt;b>maximum number&lt;/b> of oldest tests to delete is the number of tests from this student minus 1, in order to keep at
+        least one test result after deletion.&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="dialog_fragment_delete_oldest_student_results_info_tag">dialog_fragment_delete_oldest_student_results_info_tag</string>
+    <string name="dialog_fragment_delete_oldest_student_results_edit_text_error_message">Please enter a number between 1 and %1$d</string>
+    <string name="dialog_fragment_delete_oldest_student_results_text_view_one_test_to_delete_text">You are going to delete the oldest test from &lt;b>%1$s&lt;/b> and keep the most current one.</string>
+
+    <!-- Alert Dialog strings -->
+    <string name="alert_dialogs_positive_button_text">OK</string>
+    <string name="delete_student_confirmation_dialog_fragment_text">
+        &lt;br/&gt;You are going to delete &lt;b>%1$s %2$s&lt;/b> and all the student\'s test results.&lt;br/&gt;&lt;br/&gt;Are you sure?&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="delete_student_confirmation_dialog_fragment_title">Delete student</string>
+    <string name="delete_student_confirmation_dialog_fragment_tag">Delete student</string>
+    <string name="delete_student_alert_dialog_positive_button_text">@string/yes_uppercase_text</string>
+    <string name="delete_student_alert_dialog_negative_button_text">@string/no_uppercase_text</string>
+    <string name="add_test_alert_dialog_text">
+        &lt;br/&gt;&lt;b>%1$s&lt;/b> of %2$s words read correctly.&lt;br/&gt;&lt;br/&gt;Do you want to save this test result?&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="add_test_alert_dialog_tag">add_test</string>
+    <string name="about_dialog_fragment_title">About</string>
+    <string name="about_dialog_fragment_text">
+        &lt;br/>App designed and developed by:&lt;br/&gt;&lt;br/&gt;&lt;i>&lt;b>&lt;a href="https://hectorjorozco.weebly.com">Hector J. Orozco&lt;/a>&lt;/b>&lt;/i>&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+        &lt;i>Credits.&lt;/i>&lt;br/&gt;&lt;br/&gt;Icons made by &lt;i>&lt;a href="https://www.freepik.com">Freepik&lt;/a>&lt;/i> and
+        &lt;i>&lt;a href="https://www.flaticon.com/authors/wissawa-khamsriwath">Wissawa Khamsriwath&lt;/a>&lt;/i> from
+        &lt;i>&lt;a href="https://www.flaticon.com">www.flaticon.com&lt;/a>&lt;/i> licensed by
+        &lt;i>&lt;a href="http://creativecommons.org/licenses/by/3.0">Creative Commons BY 3.0&lt;/a>&lt;/i>
+        &lt;br/>&lt;br/>Pictures created by &lt;i>&lt;a href="https://www.freepik.com/pressfoto">Pressfoto&lt;/a>&lt;/i>,
+        &lt;i>&lt;a href="https://www.freepik.com/tirachard">tirachard&lt;/a>&lt;/i>, &lt;i>&lt;a href="https://www.freepik.com/jcomp">jcomp&lt;/a>&lt;/i> and
+        &lt;i>&lt;a href="https://www.freepik.com/rawpixel-com">rawpixel.com&lt;/a>&lt;/i> on &lt;i>&lt;a href="https://www.freepik.com">Freepik&lt;/a>&lt;/i>&lt;br/>&lt;br/>
+        Sight Words information obtained from &lt;i>&lt;a href="https://sightwords.com">https://sightwords.com/&lt;/a>&lt;/i>&lt;br/>&lt;br/>&lt;br/>
+        &lt;i>Licenses.&lt;/i>&lt;br/>&lt;br/>
+        &lt;i>&lt;a href="https://www.android.com/">Android&lt;/a>&lt;/i> (mobile operating system developed by Google).
+        &lt;i>&lt;a href="https://source.android.com/setup/start/licenses">Copyright 2018 The Android Open Source Project&lt;/a>&lt;/i>.&lt;br/>&lt;br/>
+        &lt;i>&lt;a href="http://facebook.github.io/stetho/">Stetho&lt;/a>&lt;/i> (debug bridge for Android applications).
+        &lt;i>&lt;a href="https://github.com/facebook/stetho/blob/master/LICENSE">BSD-license&lt;/a>&lt;/i>, and
+        &lt;i>&lt;a href="https://github.com/facebook/stetho/blob/master/PATENTS">patent grant&lt;/a>&lt;/i>.&lt;br/>&lt;br/>
+        &lt;i>&lt;a href="http://androidplot.com/">Androidplot&lt;/a>&lt;/i> (library for creating dynamic and static charts).
+        &lt;i>&lt;a href="https://github.com/halfhp/androidplot#license">Copyright 2018 Androidplot.com&lt;/a>&lt;/i>.&lt;br/>&lt;br/>
+        &lt;i>&lt;a href="https://commons.apache.org/proper/commons-csv/index.html">Apache Commons CSV&lt;/a>&lt;/i>
+        (reads and writes files in variations of the Comma Separated Value format).
+        &lt;i>&lt;a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 license&lt;/a>&lt;/i>.&lt;br/>&lt;br/>
+        &lt;i>&lt;a href="https://github.com/rengwuxian/MaterialEditText">MaterialEditText&lt;/a>&lt;/i>
+        (customizable EditText). &lt;i>&lt;a href="https://github.com/rengwuxian/MaterialEditText#license">
+        Copyright 2014 rengwuxian&lt;/a>&lt;/i>.&lt;br/>&lt;br/>&lt;br/>
+        &lt;i>Privacy.&lt;/i>&lt;br/>&lt;br/>This app does not collect any private data from you or your device.&lt;br/>&lt;br/>
+    </string>
+    <string name="about_dialog_fragment_tag">about</string>
+    <string name="menu_main_download_on_another_device_alert_dialog_button_text">
+        Share resources link
+    </string>
+    <string name="duplicated_student_dialog_fragment_title">Duplicate student</string>
+    <string name="duplicated_student_dialog_fragment_text">
+        \nThere is a student in your class with this name already.\n
+    </string>
+    <string name="duplicated_student_dialog_fragment_tag">duplicate_student</string>
+    <string name="test_information_with_incorrect_words_alert_dialog_text">
+        &lt;br/&gt;&lt;b>%1$s %2$s&lt;/b>.&lt;br/&gt;&lt;br/&gt;%3$s&lt;br/&gt;&lt;i>%4$s&lt;/i>&lt;br/&gt;&lt;b>%5$d words read correctly&lt;/b>.
+        &lt;br/&gt;&lt;br/&gt;Words not read correctly:&lt;br/&gt;&lt;i>%6$s&lt;/i>.&lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="test_information_without_incorrect_words_alert_dialog_text">
+        &lt;br/&gt;&lt;b>%1$s %2$s&lt;/b>.&lt;br/&gt;&lt;br/&gt;%3$s&lt;br/&gt;&lt;i>%4$s&lt;/i>&lt;br/&gt;&lt;b>All words read correctly&lt;/b>.
+        &lt;br/&gt;&lt;br/&gt;
+    </string>
+    <string name="test_information_alert_dialog_title">Test</string>
+    <string name="last_test_information_alert_dialog_title">Last test</string>
+
+    <!-- Items 0 to 15 are words lists urls (0 to 5 Dolch, 6 to 15 Fry).
+         Items 16 to 31 are flash cards urls (16 to 21 Dolch, 22 to 31 Fry)  -->
+    <string-array name="resources_urls">
+        <item>https://drive.google.com/uc?export=download&amp;id=1ds6ea7r9dISLJU7TubJt1o1bVv9cuIGP</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1yp-xBLmThbTo32qdMCRrqq6sxAf5G8Kl</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1cgGfFwDwzwXPtApJUOkxX1wN0fJSJGrC</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1JQ8N-KVIo8MesADC7SSCaZ2DRMTk0FA2</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1ng19tQYIFAXQ7uRcHYDrNF3eUpgXN0CX</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1mUoeD7MSfoYbTJ0m6FFgKBC56_aNSb9O</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=18g2BccherAgpN9AXOrLyS6A5Ip1JliV_</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1kZseSLcmLHLE81EpohMBgL5RHmGZd9G_</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1daUkkyZNvGVXp6CK_D4ScAyYGj2qv6mu</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1O3EYoPj79V1hMKzbLkwvaud2LZLfKW3m</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1rn-TyqtTK-UzTJQkIaSGye1nKwZlNyZq</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=16syWY1kn3sLOnmOGwee9db7Ux2QlmGdc</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=12krby1XM80GNndk1R_RQJ4Wi5ZeO5yf8</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=10m1s-W1v-i1q6c-Wc_tyH1psKfMyp3z7</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1JK8E4_iiYF15AFWri9KBNOEwwdPAgBON</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1TUSD92BgRk_VSpMzllXdVHS8ja5oufjb</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=15yTYFx_MK5-HGXMdEpfUa3UrZiifw7QM</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1-uMTPHhLLrwcInQaeG7N_wYQ8ZKloFyj</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=17dfBjL3S-S56ZylKIFsM6395iqaZNfhC</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1CVb-ybXfTLgYKjz8q15Cj43Rsgl_z4HC</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=13hdtkUgcc9FcmGRCXuTICLmHWwyhuo8m</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1yjWs6qDtbWLPG1EPEronD5rrq9rxtIFB</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1XKHlDnYRz0RsV3G7C-WINj7Bclu5unjo</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1XR8KpKqck0xA3rRAwAy3nJby3AsysdSF</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=16D9qA7J6W15zS8GT2i1OFxedd7ahbK8g</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1GfMQB8smoU1UUBIMBPZIt3lYoCeIKTpb</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1iEj9x75f8mF6uSkJ45ZNvYfm3nBIsULJ</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1ZBbmwv98mxKpI3yZ8webB9NAKN2Mgb-y</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1OLQ_qLVy5jAAByr70OyicT0KVxC27ekK</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1CONoQi86eVTgyNQ9MnadBcnZIH6As_Oi</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1zUesoFsLu3nxP7ymOomMfSo7ATvciZnB</item>
+        <item>https://drive.google.com/uc?export=download&amp;id=1Xu2ullroTnzcwTYpolrxyERhyTUqCtZ_</item>
+    </string-array>
+
+    <string name="all_words_lists_url">
+        https://drive.google.com/uc?export=download&amp;id=1AEa9IiOTSA_bn50xFh6yK8QfyHMXBOwL</string>
+    <string name="all_flash_cards_url">
+        https://drive.google.com/uc?export=download&amp;id=1GE4sFL_xjX3XcFLtyZQb8y__izXdVkYR</string>
+
+    <!-- Resources website URL -->
+    <string name="resources_webpage_url">\nhttps://hectorjorozco.weebly.com/sight-words-test.html\n\n</string>
+
+    <string name="test_selector_spinner_dolch_prek">
+        &lt;b>Dolch Pre-K&lt;/b> &lt;small>&lt;font color=#%1$s>(40 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_dolch_k">
+        &lt;b>Dolch Kindergarten&lt;/b> &lt;small>&lt;font color=#%1$s>(52 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_dolch_1st_grade">
+        &lt;b>Dolch 1st grade&lt;/b> &lt;small>&lt;font color=#%1$s>(41 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_dolch_2nd_grade">
+        &lt;b>Dolch 2nd grade&lt;/b> &lt;small>&lt;font color=#%1$s>(46 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_dolch_3rd_grade">
+        &lt;b>Dolch 3rd grade&lt;/b> &lt;small>&lt;font color=#%1$s>(41 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_dolch_nouns">
+        &lt;b>Dolch Nouns&lt;/b> &lt;small>&lt;font color=#%1$s>(95 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_fry_1st">
+        &lt;b>Fry 1st list&lt;/b> &lt;small>&lt;font color=#%1$s>(100 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_fry_2nd">
+        &lt;b>Fry 2nd list&lt;/b> &lt;small>&lt;font color=#%1$s>(100 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_fry_3rd">
+        &lt;b>Fry 3rd list&lt;/b> &lt;small>&lt;font color=#%1$s>(100 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_fry_4th">
+        &lt;b>Fry 4th list&lt;/b> &lt;small>&lt;font color=#%1$s>(100 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_fry_5th">
+        &lt;b>Fry 5th list&lt;/b> &lt;small>&lt;font color=#%1$s>(100 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_fry_6th">
+        &lt;b>Fry 6th list&lt;/b> &lt;small>&lt;font color=#%1$s>(100 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_fry_7th">
+        &lt;b>Fry 7th list&lt;/b> &lt;small>&lt;font color=#%1$s>(100 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_fry_8th">
+        &lt;b>Fry 8th list&lt;/b> &lt;small>&lt;font color=#%1$s>(100 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_fry_9th">
+        &lt;b>Fry 9th list&lt;/b> &lt;small>&lt;font color=#%1$s>(100 words)&lt;/font>&lt;/small>
+    </string>
+    <string name="test_selector_spinner_fry_10th">
+        &lt;b>Fry 10th list&lt;/b> &lt;small>&lt;font color=#%1$s>(100 words)&lt;/font>&lt;/small>
+    </string>
+
+    <!-- Test type strings array -->
+    <string-array name="test_types">
+        <item>Dolch Pre-K</item>
+        <item>Dolch Kindergarten</item>
+        <item>Dolch 1st grade</item>
+        <item>Dolch 2nd grade</item>
+        <item>Dolch 3rd grade</item>
+        <item>Dolch nouns</item>
+        <item>Fry 1st list</item>
+        <item>Fry 2nd list</item>
+        <item>Fry 3rd list</item>
+        <item>Fry 4th list</item>
+        <item>Fry 5th list</item>
+        <item>Fry 6th list</item>
+        <item>Fry 7th list</item>
+        <item>Fry 8th list</item>
+        <item>Fry 9th list</item>
+        <item>Fry 10th list</item>
+    </string-array>
+
+    <!-- Number of words -->
+
+    <!-- FRAGMENT WORD LISTS INFORMATION strings  -->
+    <string name="fragment_word_lists_information_image_content_description">Girl reading a book</string>
+    <string name="fragment_word_lists_information_tool_bar_title">Sight words</string>
+    <string name="fragment_word_lists_information_text">
+        &lt;br/&gt;&lt;b>Sight words&lt;/b> are words that should be memorized to help a child learn to
+        read and write. Learning sight words allows a child to recognize these words at a glance
+        — &lt;i>on sight&lt;/i> — without needing to break the words down into their individual letters and is
+        the way strong readers recognize most words. Knowing common, or high frequency, words by
+        sight makes reading easier and faster, because the reader does not need to stop to try and
+        sound out each individual word, letter by letter.&lt;br/&gt;&lt;br/&gt;The two most commonly used
+        sight words lists are the &lt;a href="Dolch">&lt;i>Dolch words&lt;/i>&lt;/a> and the &lt;a href="Fry">&lt;i>Fry words&lt;/i>&lt;/a>.&lt;br/&gt;&lt;br/&gt;
+        The &lt;b>Dolch Sight Words&lt;/b> list is the most commonly used set of sight words. Educator Dr. Edward William
+        Dolch developed the list in the 1930s-40s by studying the most frequently occurring words in
+        children’s books of that era. The list contains 220 “service words” plus 95 high-frequency
+        nouns. These words comprise 80% of the words you would find in a typical
+        children’s book and 50% of the words found in writing for adults. Once a child knows this
+        list of words, it makes reading much easier, because the child can then focus his or her
+        attention on the remaining words.&lt;br/&gt;&lt;br/&gt;The Dolch words are divided into groups by
+        grade level, ranging from pre-kindergarten to third grade, with a separate list of nouns.
+        There are a total of 315 Dolch Sight Words.&lt;br/&gt;&lt;br/&gt;The &lt;b>Fry Sight Words&lt;/b> list is a more
+        modern list of words, and was extended to capture the most common 1,000 words in the English language. Dr. Edward
+        Fry developed this expanded list in the 1950s (and updated it in 1980), based on the most
+        common words to appear in reading materials used in Grades 3-9. Learning all 1,000 words in
+        the Fry list would equip a child to read about 90% of the words in a typical
+        book, newspaper, or website.&lt;br/>&lt;br/>The Fry words are listed by the frequency with which they occur
+        and are broken down into groups of 100. So the first 100 Fry words are the 100 most
+        frequently occurring words in the English language.&lt;br/>
+    </string>
+
+    <string name="fragment_word_lists_information_dolch_words_dialog_fragment_title">Dolch words</string>
+    <string name="fragment_word_lists_information_dolch_words_dialog_fragment_tag">dolch_words_info</string>
+    <string name="fragment_word_lists_information_dolch_words_dialog_fragment_text">
+        &lt;br/&gt;&lt;i>&lt;b>Pre-K (40 words):&lt;/b>&lt;/i> a, and, away, big, blue, can, come, down, find, for, funny, go,
+        help, here, I, in, is, it, jump, little, look, make, me, my, not, one, play, red, run, said,
+        see, the, three, to, two, up, we, where, yellow, you.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>Kindergarten (52 words):&lt;/b>&lt;/i> all, am, are, at, ate, be, black, brown, but, came, did, do,
+        eat, four, get, good, have, he, into, like, must, new, no, now, on, our, out, please,
+        pretty, ran, ride, saw, say, she, so, soon, that, there, they, this, too, under, want, was,
+        well, went, what, white, who, will, with, yes.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>First Grade (41 words):&lt;/b>&lt;/i> after, again, an, any, as, ask, by, could, every, fly, from,
+        give, going, had, has, her, him, his, how, just, know, let, live, may, of, old, once, open,
+        over, put, round, some, stop, take, thank, them, then, think, walk, were, when.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>Second Grade (46 words):&lt;/b>&lt;/i> always, around, because, been, before, best, both, buy,
+        call, cold, does, don’t, fast, first, five, found, gave, goes, green, its, made, many, off,
+        or, pull, read, right, sing, sit, sleep, tell, their, these, those, upon, us, use, very,
+        wash, which, why, wish, work, would, write, your.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>Third Grade (41 words):&lt;/b>&lt;/i> about, better, bring, carry, clean, cut, done, draw, drink,
+        eight, fall, far, full, got, grow, hold, hot, hurt, if, keep, kind, laugh, light, long,
+        much, myself, never, only, own, pick, seven, shall, show, six, small, start, ten, today,
+        together, try, warm.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>Nouns (95 words):&lt;/b>&lt;/i> apple, baby, back, ball, bear, bed, bell, bird, birthday, boat, box,
+        boy, bread, brother, cake, car, cat, chair, chicken, children, Christmas, coat, corn, cow,
+        day, dog, doll, door, duck, egg, eye, farm, farmer, father, feet, fire, fish, floor, flower,
+        game, garden, girl, goodbye, grass, ground, hand, head, hill, home, horse, house, kitty,
+        leg, letter, man, men, milk, money, morning, mother, name, nest, night, paper, party,
+        picture, pig, rabbit, rain, ring, robin, Santa Claus, school, seed, sheep, shoe, sister,
+        snow, song, squirrel, stick, street, sun, table, thing, time, top, toy, tree, watch, water,
+        way, wind, window, wood.&lt;br/&gt;
+    </string>
+    <string name="fragment_word_lists_information_fry_words_dialog_fragment_title">Fry words</string>
+    <string name="fragment_word_lists_information_fry_words_dialog_fragment_tag">fry_words_info</string>
+    <string name="fragment_word_lists_information_fry_words_dialog_fragment_text">
+        &lt;br/&gt;&lt;i>&lt;b>1st 100:&lt;/b>&lt;/i> a, about, all, an, and, are, as, at, be, been, but, by, called, can,
+        come, could, day, did, do, down, each, find, first, for, from, get, go, had, has, have, he,
+        her, him, his, how, I, if, in, into, is, it, like, long, look, made, make, many, may, more,
+        my, no, not, now, number, of, oil, on, one, or, other, out, part, people, said, see, she,
+        sit, so, some, than, that, the, their, them, then, there, these, they, this, time, to, two,
+        up, use, was, water, way, we, were, what, when, which, who, will, with, words, would, write,
+        you, your.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>2nd 100:&lt;/b>&lt;/i> after, again, air, also, America, animal, another, answer, any, around, ask,
+        away, back, because, before, big, boy, came, change, different, does, end, even, follow,
+        form, found, give, good, great, hand, help, here, home, house, just, kind, know, land,
+        large, learn, letter, line, little, live, man, me, means, men, most, mother, move, much,
+        must, name, need, new, off, old, only, our, over, page, picture, place, play, point, put,
+        read, right, same, say, sentence, set, should, show, small, sound, spell, still, study,
+        such, take, tell, things, think, three, through, too, try, turn, us, very, want, well, went,
+        where, why, work, world, years.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>3rd 100:&lt;/b>&lt;/i> above, add, almost, along, always, began, begin, being, below, between,
+        book, both, car, carry, children, city, close, country, cut, don’t, earth, eat, enough,
+        every, example, eyes, face, family, far, father, feet, few, food, four, girl, got, group,
+        grow, hard, head, hear, high, idea, important, Indian, it’s, keep, last, late, leave, left,
+        let, life, light, list, might, mile, miss, mountains, near, never, next, night, often, once,
+        open, own, paper, plant, real, river, run, saw, school, sea, second, seem, side, something,
+        sometimes, song, soon, start, state, stop, story, talk, those, thought, together, took,
+        tree, under, until, walk, watch, while, white, without, young.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>4th 100:&lt;/b>&lt;/i> across, against, area, become, best, better, birds, black, body, certain,
+        cold, color, complete, covered, cried, didn’t, dog, door, draw, during, early, easy, ever,
+        fall, farm, fast, field, figure, fire, fish, five, friends, ground, happened, heard,
+        himself, hold, horse, hours, however, hundred, I’ll, king, knew, listen, low, map, mark,
+        measure, money, morning, music, north, notice, numeral, order, passed, pattern, piece, plan,
+        problem, products, pulled, questions, reached, red, remember, rock, room, seen, several,
+        ship, short, since, sing, slowly, south, space, stand, step, sun, sure, table, today, told,
+        top, toward, town, travel, true, unit, upon, usually, voice, vowel, war, waves, whole, wind,
+        wood.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>5th 100:&lt;/b>&lt;/i> able, ago, am, among, ball, base, became, behind, boat, box, bring,
+        brought, building, built, cannot, carefully, check, circle, class, clear, common, contain,
+        correct, course, dark, decided, deep, done, dry, English, equation, explain, fact, feel,
+        filled, finally, fine, fly, force, front, full, game, gave, government, green, half, heat,
+        heavy, hot, inches, include, inside, island, known, language, less, machine, material,
+        minutes, note, nothing, noun, object, ocean, oh, pair, person, plane, power, produce,
+        quickly, ran, rest, road, round, rule, scientists, shape, shown, six, size, special, stars,
+        stay, stood, street, strong, surface, system, ten, though, thousands, understand, verb,
+        wait, warm, week, wheels, yes, yet.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>6th 100:&lt;/b>&lt;/i> anything, arms, beautiful, believe, beside, bill, blue, brother,
+        can’t, cause, cells, center, clothes, dance, describe, developed, difference, direction,
+        discovered, distance, divided, drive, drop, edge, eggs, energy, Europe, exercise, farmers,
+        felt, finished, flowers, forest, general, gone, grass, happy, heart, held, instruments,
+        interest, job, kept, lay, legs, length, love, main, matter, meet, members, million, mind,
+        months, moon, paint, paragraph, past, perhaps, picked, present, probably, race, rain,
+        raised, ready, reason, record, region, represent, return, root, sat, shall, sign, simple,
+        site, sky, soft, square, store, subject, suddenly, sum, summer, syllables, teacher, test,
+        third, train, wall, weather, west, whether, wide, wild, window, winter, wish, written.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>7th 100:&lt;/b>&lt;/i> act, Africa, age, already, although, amount, angle, appear, baby,
+        bear, beat, bed, bottom, bright, broken, build, buy, care, case, cat, century, consonant,
+        copy, couldn’t, count, cross, dictionary, died, dress, either, everyone, everything,
+        exactly, factors, fight, fingers, floor, fraction, free, French, gold, hair, hill, hole,
+        hope, ice, instead, iron, jumped, killed, lake, laughed, lead, let’s, lot, melody, metal,
+        method, middle, milk, moment, nation, natural, outside, per, phrase, poor, possible, pounds,
+        pushed, quiet, quite, remain, result, ride, rolled, sail, scale, section, sleep, smiled,
+        snow, soil, solve, someone, son, speak, speed, spring, stone, surprise, tall, temperature,
+        themselves, tiny, trip, type, village, within, wonder.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>8th 100:&lt;/b>&lt;/i> alone, art, bad, bank, bit, break, brown, burning, business, captain,
+        catch, caught, cents, child, choose, clean, climbed, cloud, coast, continued, control, cool,
+        cost, decimal, desert, design, direct, drawing, ears, east, else, engine, England, equal,
+        experiment, express, feeling, fell, flow, foot, garden, gas, glass, God, grew, history,
+        human, hunting, increase, information, itself, joined, key, lady, law, least, lost, maybe,
+        mouth, party, pay, period, plains, please, practice, president, received, report, ring,
+        rise, row, save, seeds, sent, separate, serve, shouted, single, skin, statement, stick,
+        straight, strange, students, suppose, symbols, team, touch, trouble, uncle, valley, visit,
+        wear, whose, wire, woman, wrote, yard, you’re, yourself.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>9th 100:&lt;/b>&lt;/i> addition, army, bell, belong, block, blood, blow, board, bones,
+        branches, cattle, chief, compare, compound, consider, cook, corner, crops, crowd, current,
+        doctor, dollars, eight, electric, elements, enjoy, entered, except, exciting, expect,
+        famous, fit, flat, fruit, fun, guess, hat, hit, indicate, industry, insects, interesting,
+        Japanese, lie, lifted, loud, major, mall, meat, mine, modern, movement, necessary, observe,
+        park, particular, planets, poem, pole, position, process, property, provide, rather, rhythm,
+        rich, safe, sand, science, sell, send, sense, seven, sharp, shoulder, sight, silent,
+        soldiers, spot, spread, stream, string, suggested, supply, swim, terms, thick, thin, thus,
+        tied, tone, trade, tube, value, wash, wasn’t, weight, wife, wings, won’t.&lt;br/&gt;&lt;br/&gt;
+        &lt;i>&lt;b>10th 100:&lt;/b>&lt;/i> action, actually, adjective, afraid, agreed, ahead, allow, apple,
+        arrived, born, bought, British, capital, chance, chart, church, column, company, conditions,
+        corn, cotton, cows, create, dead, deal, death, details, determine, difficult, division,
+        doesn’t, effect, entire, especially, evening, experience, factories, fair, fear, fig,
+        forward, France, fresh, Greek, gun, hoe, huge, isn’t, led, level, located, march, match,
+        molecules, northern, nose, office, opposite, oxygen, plural, prepared, pretty, printed,
+        radio, repeated, rope, rose, score, seat, settled, shoes, shop, similar, sir, sister, smell,
+        solution, southern, steel, stretched, substances, suffix, sugar, tools, total, track,
+        triangle, truck, underline, various, view, Washington, we’ll, western, win, women, workers,
+        wouldn’t, wrong, yellow.&lt;br/&gt;
+    </string>
+
+
+    <!-- WIDGET strings -->
+    <string name="widget_test_type_text">&lt;b>&lt;i>%1$s test&lt;/i>&lt;/b> &lt;small>
+        &lt;font color=#%2$s>(%3$s words)&lt;/font>&lt;/small></string>
+</resources>

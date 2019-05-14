@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dialog_fragment_load_students_notification_info_image_margin_start">@dimen/application_standard_margin</dimen>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Describes the app widget provider (used in AndroidManifest.xml) -->
+
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialLayout="@layout/widget"
+    android:minHeight="@dimen/widget_minimum_height_dimension"
+    android:minWidth="@dimen/widget_minimum_width_dimension"
+    android:previewImage="@drawable/widget_preview_image"
+    android:resizeMode="vertical|horizontal"
+    android:updatePeriodMillis="@integer/widget_update_period_millis" />

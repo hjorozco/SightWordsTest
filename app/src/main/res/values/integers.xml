@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!-- 12 hours -->
+    <integer name="widget_update_period_millis">43200000</integer>
+    <integer name="test_results_graph_line_label_rotation_bottom">-58</integer>
+    <integer name="maximum_number_of_chars_on_delete_oldest_tests_edit_text">3</integer>
+</resources>

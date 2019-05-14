@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- TestActivity layout -->
+
+<!-- Contains a CoordinatorLayout and a FloatingActionButton over it at the bottom -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- Coordinates an AppBarLayout at the top and a NestedScrollView at the bottom -->
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/activity_test_coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.TestActivity">
+
+        <!-- Contains a CollapsingToolbarLayout -->
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/activity_test_app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:fitsSystemWindows="false"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <!-- Contains a FrameLayout that will collapse in a Toolbar -->
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/activity_test_collapsing_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="@color/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:toolbarId="@+id/activity_test_tool_bar">
+
+                <!-- Contains an ImageView a Views that covers it and a TextView over them -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- Displays a picture of a teacher testing a student -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/activity_test_image_content_description"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/activity_test_image" />
+
+                    <!-- Scrim to make the app name and tool bar menu more legible -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/top_bottom_scrim" />
+
+
+                </FrameLayout>
+
+                <!-- The app toolbar -->
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/activity_test_tool_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:fitsSystemWindows="true"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <!-- Contains a RecyclerView -->
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/activity_test_nested_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+            tools:context=".ui.TestActivity"
+            tools:showIn="@layout/activity_test">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- RecyclerView that is responsible for holding studentList data -->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/activity_test_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:paddingBottom="@dimen/activity_test_content_padding_bottom" />
+
+                <TextView
+                    android:id="@+id/activity_test_no_test_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/application_standard_margin"
+                    android:gravity="start"
+                    android:text="@string/activity_test_no_test_message"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/application_text_size"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <!-- When clicked will launch a fragment to add a new student -->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/activity_test_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:tint="@android:color/white"
+        app:srcCompat="@drawable/ic_check_white_24dp" />
+
+</FrameLayout>

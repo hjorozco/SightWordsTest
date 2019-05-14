@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/dialog_fragment_sort_students_by_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/application_standard_margin"
+            android:layout_marginTop="@dimen/application_large_margin"
+            android:layout_marginBottom="@dimen/application_standard_margin"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/application_medium_padding">
+
+            <RadioButton
+                android:id="@+id/dialog_fragment_sort_students_by_first_name_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dialog_fragment_sort_students_by_first_name_text"
+                android:textColor="@color/colorPrimaryDark"
+                android:theme="@style/controlStyle" />
+
+            <RadioButton
+                android:id="@+id/dialog_fragment_sort_students_by_last_name_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dialog_fragment_sort_students_by_last_name_text"
+                android:textColor="@color/colorPrimaryDark"
+                android:theme="@style/controlStyle" />
+
+            <RadioButton
+                android:id="@+id/dialog_fragment_sort_students_by_test_result_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dialog_fragment_sort_students_by_test_result_text"
+                android:textColor="@color/colorPrimaryDark"
+                android:theme="@style/controlStyle" />
+
+            <RadioButton
+                android:id="@+id/dialog_fragment_sort_students_by_test_type_radio_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dialog_fragment_sort_students_by_test_type_text"
+                android:textColor="@color/colorPrimaryDark"
+                android:theme="@style/controlStyle" />
+
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/dialog_fragment_sort_students_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/application_large_margin"
+            android:layout_marginTop="@dimen/application_large_margin"
+            android:contentDescription="@string/information_image_view_content_description"
+            android:paddingTop="@dimen/application_tiny_margin"
+            app:srcCompat="@drawable/ic_info_outline_color_primary_24dp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout that describes the UI for the app widget -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widget_main_layout"
+    style="@style/widget"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/widget_title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/application_small_padding"
+        android:paddingTop="@dimen/application_standard_padding"
+        android:paddingEnd="@dimen/application_small_padding"
+        android:paddingBottom="@dimen/application_standard_padding"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/application_text_size"
+        android:textStyle="italic"
+        tools:text="Dolch Pre-K (40 words) test" />
+
+    <TextView
+        android:id="@+id/widget_sorted_by_info_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal"
+        android:paddingStart="@dimen/application_small_padding"
+        android:paddingEnd="@dimen/application_small_padding"
+        android:paddingBottom="@dimen/application_standard_padding"
+        android:textColor="@color/colorWhite80PercentTransparency"
+        android:textSize="@dimen/application_small_text_size"
+        tools:text="sorted by first name" />
+
+    <ListView
+        android:id="@+id/widget_students_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/colorRecyclerViewDividerLight"
+        android:dividerHeight="@dimen/divider_dimension"
+        tools:listitem="@layout/widget_list_student_item" />
+
+    <TextView
+        android:id="@+id/widget_empty_classroom_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/application_standard_margin"
+        android:layout_marginEnd="@dimen/application_standard_margin"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryLight"
+        android:textSize="@dimen/application_text_size" />
+
+</LinearLayout>

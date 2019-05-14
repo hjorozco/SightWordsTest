@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Shows the student test results in a graph and a list  -->
+
+<!-- Contains a CoordinatorLayout and a FloatingActionButton over it at the bottom -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ap="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_student_test_results_snack_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- Coordinates an AppBarLayout at the top and a NestedScrollView at the bottom -->
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:id="@+id/fragment_student_test_results_coordinator_layout"
+        tools:context=".ui.StudentTestResultsFragment">
+
+        <!-- Contains a CollapsingToolbarLayout -->
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/fragment_student_test_results_app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_bar_height"
+            android:fitsSystemWindows="false"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <!-- Contains a FrameLayout that will collapse in a Toolbar -->
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/fragment_student_test_results_collapsing_tool_bar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="@color/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:toolbarId="@+id/fragment_student_test_results_tool_bar">
+
+                <!-- Contains an ImageView and two Views that cover it -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- Displays a picture of test results graphs -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/fragment_student_test_results_image_content_description"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/fragment_student_test_results_image" />
+
+                    <!-- Scrim to make the tool bar title more legible -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/top_bottom_scrim" />
+
+                </FrameLayout>
+
+                <!-- The app toolbar -->
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/fragment_student_test_results_tool_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:fitsSystemWindows="true"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                </android.support.v7.widget.Toolbar>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <!-- Contains a LinearLayout -->
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:id="@+id/fragment_student_test_results_nested_scroll_view"
+            android:layout_height="match_parent"
+            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+            tools:context=".ui.StudentTestResultsFragment">
+
+            <!-- Contains the views that display the test results -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/fragment_student_test_results_nested_scroll_view_linear_layout"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/fragment_student_test_results_recycler_view_padding_bottom">
+
+                <TextView
+                    android:id="@+id/fragment_student_test_results_title_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/application_standard_margin"
+                    android:layout_marginTop="@dimen/application_standard_margin"
+                    android:layout_marginEnd="@dimen/application_standard_margin"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/application_text_size"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/fragment_student_test_results_number_of_tests_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/application_standard_margin"
+                    android:layout_marginEnd="@dimen/application_standard_margin"
+                    android:layout_marginBottom="@dimen/application_standard_margin"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:textSize="@dimen/application_small_text_size" />
+
+                <TextView
+                    android:id="@+id/fragment_student_test_results_no_tests_instructions_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_student_test_results_no_students_instructions"
+                    android:layout_marginStart="@dimen/application_standard_margin"
+                    android:layout_marginTop="@dimen/application_standard_margin"
+                    android:layout_marginEnd="@dimen/application_standard_margin"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:textSize="@dimen/application_text_size" />
+
+                <!-- Graph of test results  -->
+                <com.androidplot.xy.XYPlot
+                    android:id="@+id/fragment_student_test_results_plot"
+                    style="@style/APDefacto.Light"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/test_results_graph_height"
+                    android:layout_marginBottom="@dimen/application_standard_margin"
+                    android:visibility="gone"
+                    ap:backgroundColor="@color/appBackground"
+                    ap:borderColor="@color/colorPrimaryDark"
+                    ap:borderThickness="@dimen/test_results_graph_border_thickness"
+                    ap:lineLabelRotationBottom="@integer/test_results_graph_line_label_rotation_bottom" />
+
+                <!-- RecyclerView that is responsible for holding testResultsList data -->
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/fragment_student_test_results_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+
+                    android:paddingBottom="@dimen/fragment_student_test_results_recycler_view_padding_bottom" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <!-- When clicked will launch an activity to test a student -->
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fragment_student_test_results_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:tint="@android:color/white"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+</FrameLayout>

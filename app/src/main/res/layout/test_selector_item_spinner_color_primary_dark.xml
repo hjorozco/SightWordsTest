@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- TextView that defines a selected item for the spinner shown in the menu of activity_movies.xml -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:textStyle="italic"
+    android:padding="@dimen/application_small_padding"
+    android:textColor="@color/colorPrimaryDark"
+    android:textSize="@dimen/application_text_size"/>

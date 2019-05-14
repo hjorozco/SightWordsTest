@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="fragment_student_test_results_recycler_view_padding_bottom">44dp</dimen>
+
+    <!-- Application Widget -->
+    <dimen name="widget_minimum_height_dimension">250dp</dimen>
+    <dimen name="widget_minimum_width_dimension">120dp</dimen>
+
+    <!-- Fragment Word Lists information -->
+    <dimen name="fragment_word_lists_information_margin_bottom">152dp</dimen>
+
+</resources>

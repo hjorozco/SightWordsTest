@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.weebly.hectorjorozco.sightwordstest">
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- Launcher Activity. It displays a list of students -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:theme="@style/AppTheme.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Activity that lets the user to add a new student. Shown on a phone. -->
+        <activity
+            android:name=".ui.AddStudentActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Activity that shows a student test results. Shown on a phone. -->
+        <activity
+            android:name=".ui.StudentTestResultsActivity"
+            android:theme="@style/AppTheme.Launcher" />
+
+        <!-- Activity that shows a test  -->
+        <activity
+            android:name=".ui.TestActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Activity that shows information about the firstName lists available on the app.
+             Shown on a phone. -->
+        <activity
+            android:name=".ui.WordListsInformationActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Activity that shows a list of resources for the user to download -->
+        <activity
+            android:name=".ui.HelpActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- Widget service that populates the widget's ListView -->
+        <service
+            android:name=".widget.WidgetRemoteViewsService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <!-- Widget provider that acts as a receiver for widget updates -->
+        <receiver android:name=".widget.WidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider_info" />
+        </receiver>
+
+        <!-- FileProvider used on Android 8.0 and up -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

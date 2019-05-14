@@ -1,0 +1,47 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.weebly.hectorjorozco.sightwordstest.ui.StudentTestResultsFragment">
+
+    <item
+        android:id="@+id/menu_student_test_results_action_show_hide_graph"
+        android:icon="@drawable/ic_line_chart_outline_white_24dp"
+        android:title="@string/menu_student_test_results_action_show_graph_title"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_student_test_results_action_share"
+        android:icon="@drawable/ic_share_white_24dp"
+        android:title="@string/menu_student_test_results_action_share_title"
+        app:showAsAction="ifRoom" />
+
+    <group android:id="@+id/menu_student_test_results_delete_group">
+        <item
+            android:id="@+id/menu_student_test_results_action_delete"
+            android:icon="@drawable/ic_delete_outline_white_24dp"
+            android:title="@string/menu_student_test_results_action_delete_title"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_student_test_results_action_delete_old_results"
+            android:icon="@drawable/ic_delete_outline_white_24dp"
+            android:title="@string/menu_student_test_results_action_delete_old_results_title"
+            app:showAsAction="never" />
+    </group>
+
+    <group android:id="@+id/menu_student_test_results_change_group">
+        <item
+            android:id="@+id/menu_student_test_results_action_change"
+            android:icon="@drawable/ic_change_outline_white_24dp"
+            android:title="@string/menu_student_test_results_action_change_title"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_student_test_results_action_edit"
+            android:icon="@drawable/ic_name_outline_white_24dp"
+            android:title="@string/menu_student_test_results_action_edit_title"
+            app:showAsAction="never" />
+    </group>
+
+</menu>
+

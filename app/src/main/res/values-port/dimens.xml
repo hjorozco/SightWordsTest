@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fragment Word Lists information -->
+    <dimen name="fragment_word_lists_information_margin_bottom">72dp</dimen>
+</resources>

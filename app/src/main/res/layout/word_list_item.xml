@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- UI for a single firstName that will be shown on "activity_test_recycler_view"
+     of "activity_test.xml" -->
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardElevation="@dimen/card_view_elevation">
+
+    <TextView
+        android:id="@+id/word_list_item_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingStart="@dimen/application_tiny_padding"
+        android:paddingTop="@dimen/application_standard_padding"
+        android:paddingEnd="@dimen/application_tiny_padding"
+        android:paddingBottom="@dimen/application_standard_padding"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/application_big_text_size"
+        tools:text="firstName" />
+
+</android.support.v7.widget.CardView>

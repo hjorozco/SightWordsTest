@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This linear layout contains a single student item displayed in the application Widget -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/application_small_padding"
+    android:id="@+id/widget_list_student_item">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- TextView that displays the student's name -->
+        <TextView
+            android:id="@+id/widget_student_name_text_view"
+            android:textSize="@dimen/application_text_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            tools:text="Student name" />
+
+        <!-- TextView that displays the date of the last test -->
+        <TextView
+            android:id="@+id/widget_last_test_date_text_view"
+            android:textSize="@dimen/application_small_text_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="italic"
+            tools:text="10/11/1999" />
+
+    </LinearLayout>
+
+    <!-- TextView that displays the student's last test grade -->
+    <TextView
+        android:id="@+id/widget_grade_text_view"
+        android:textSize="@dimen/application_text_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/application_standard_margin"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        tools:text="1" />
+
+</LinearLayout>
+
+

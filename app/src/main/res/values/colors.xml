@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary app colors -->
+    <color name="colorPrimaryUltraLight">#E8EAF6</color>    <!-- Indigo 50 -->
+    <color name="colorPrimaryMediumLight">#C5CAE9</color>   <!-- Indigo 100 -->
+    <color name="colorPrimaryInfoIcon">@color/colorPrimaryMediumLight</color>
+    <color name="colorPrimaryLight">#7986CB</color>         <!-- Indigo 300 -->
+    <color name="colorPrimary">#3F51B5</color>              <!-- Indigo 500 -->
+    <color name="colorPrimaryDark">#303F9F</color>          <!-- Indigo 700 -->
+    <color name="colorAccent">#F50057</color>               <!-- Pink A400  -->
+
+    <!-- Colors for a non default test information -->
+    <color name="colorSecondaryUltraLight">#EFEBE9</color>  <!-- Brown 50  -->
+    <color name="colorSecondaryMediumLight">#D7CCC8</color> <!-- Brown 100 -->
+    <color name="colorSecondaryInfoIcon">@color/colorSecondaryMediumLight</color>
+    <color name="colorSecondaryLight">#A1887F</color>       <!-- Brown 300  -->
+    <color name="colorSecondary">#795548</color>            <!-- Brown 500  -->
+    <color name="colorSecondaryDark">#5D4037</color>        <!-- Brown 700  -->
+
+    <!-- Scrim colors -->
+    <color name="colorScrim">#40000000</color>
+    <color name="colorScrimDark">#80000000</color>
+
+    <!-- Other colors -->
+    <color name="appBackground">#fffafafa</color>
+    <color name="colorRed">#E57373</color>                              <!-- Red 300    -->
+    <color name="colorSwipeToDelete">@color/colorBackGroundActionMode</color>
+    <color name="colorWhite80PercentTransparency">#E6FFFFFF</color>
+    <color name="colorMenuItemIconSelected">#80D8FF</color>             <!-- Light Blue A100 -->
+    <color name="colorRecyclerViewDividerLight">#20000000</color>
+    <color name="colorRecyclerViewDivider">#30000000</color>
+    <color name="colorBackGroundActionMode">#D32F2F</color>             <!-- Red 700 -->
+    <color name="colorRowActivated">#E0E0E0</color>                     <!-- Grey 300 -->
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorLinks">#304FFE</color>                            <!-- Indigo A400 -->
+
+    <color name="colorDisabledMenuItem">#BDBDBD</color>
+
+</resources>

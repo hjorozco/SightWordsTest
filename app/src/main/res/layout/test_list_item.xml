@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- This linear layout contains a single test item displayed in fragment_student_test_results on a
+    Recycler View-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/test_list_item_left_swipe_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorSwipeToDelete">
+
+        <ImageView
+            android:id="@+id/test_list_item_left_swipe_delete_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/application_standard_margin"
+            app:srcCompat="@drawable/ic_delete_outline_white_24dp"
+            android:contentDescription="@string/delete_icon_content_description"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/application_standard_margin"
+            android:layout_toStartOf="@id/test_list_item_left_swipe_delete_icon"
+            android:text="@string/list_item_swipe_to_delete_text"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/application_small_text_size" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/test_list_item_right_swipe_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorSwipeToDelete">
+
+        <ImageView
+            android:id="@+id/test_list_item_right_swipe_delete_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/application_standard_margin"
+            app:srcCompat="@drawable/ic_delete_outline_white_24dp"
+            android:contentDescription="@string/delete_icon_content_description"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/application_standard_margin"
+            android:layout_toEndOf="@id/test_list_item_right_swipe_delete_icon"
+            android:text="@string/list_item_swipe_to_delete_text"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/application_small_text_size" />
+
+    </RelativeLayout>
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/test_list_item_foreground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/application_standard_padding"
+        android:paddingTop="@dimen/application_small_padding"
+        android:paddingRight="@dimen/application_standard_padding"
+        android:paddingBottom="@dimen/application_small_padding"
+        tools:context="com.weebly.hectorjorozco.sightwordstest.ui.StudentTestResultsFragment"
+        tools:ignore="UnusedAttribute">
+
+        <!-- TextView that displays the student's name -->
+        <TextView
+            android:id="@+id/test_list_item_date_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/application_text_size"
+            tools:text="09/25/2018" />
+
+        <!-- TextView that displays the student's last test grade with a background circle that is
+            colored in programmatically in the StudentsListAdapter -->
+        <TextView
+            android:id="@+id/test_list_item_grade_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/application_small_margin"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/application_text_size"
+            tools:text="1" />
+
+    </LinearLayout>
+
+</FrameLayout>
+
+

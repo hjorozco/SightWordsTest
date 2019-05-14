@@ -1,0 +1,92 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.weebly.hectorjorozco.sightwordstest.ui.MainActivity">
+
+
+    <item
+        android:id="@+id/menu_main_action_sort"
+        android:icon="@drawable/ic_sort_white_24dp"
+        android:title="@string/menu_main_action_sort_title"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_main_action_share"
+        android:icon="@drawable/ic_share_white_24dp"
+        android:title="@string/menu_main_action_share_title"
+        app:showAsAction="ifRoom" />
+
+    <group android:id="@+id/menu_main_add_students_group">
+        <item
+            android:id="@+id/menu_main_action_add_students"
+            android:icon="@drawable/ic_add_person_white_24dp"
+            android:title="@string/menu_main_action_add_students_manually_title"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_main_action_load_students"
+            android:icon="@drawable/ic_load_csv_outline_white_24dp"
+            android:title="@string/menu_main_action_load_students_from_csv_title"
+            app:showAsAction="never" />
+    </group>
+
+    <group android:id="@+id/menu_main_modify_class_group">
+        <item
+            android:id="@+id/menu_main_action_delete"
+            android:icon="@drawable/ic_delete_outline_white_24dp"
+            android:title="@string/menu_main_action_delete_title"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_main_action_create_sample_class"
+            android:title="@string/menu_main_action_create_sample_class_title"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_main_action_change"
+            android:icon="@drawable/ic_change_outline_white_24dp"
+            android:title="@string/menu_main_action_change_title"
+            app:showAsAction="never" />
+    </group>
+
+    <group android:id="@+id/menu_main_resources_group">
+        <item
+            android:id="@+id/menu_main_action_download"
+            android:icon="@drawable/ic_file_download_outline_white_24dp"
+            android:title="@string/menu_main_action_download_title"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_main_action_sight_words_info"
+            android:icon="@drawable/ic_info_outline_white_24dp"
+            android:title="@string/menu_main_action_sight_words_info_title"
+            app:showAsAction="never" />
+    </group>
+
+    <group android:id="@+id/menu_main_help_group">
+        <item
+            android:id="@+id/menu_main_action_help"
+            android:icon="@drawable/ic_help_outline_white_24dp"
+            android:title="@string/menu_main_action_help_title"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_main_action_feedback"
+            android:title="@string/menu_main_action_feedback_title"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_main_action_donate"
+            android:title="@string/menu_main_action_donate_title"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_main_action_about"
+            android:title="@string/menu_main_action_about_title"
+            app:showAsAction="never" />
+    </group>
+
+</menu>
+
+
+

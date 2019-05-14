@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/application_medium_padding"
+        android:layout_marginEnd="@dimen/application_medium_padding"
+        android:orientation="vertical">
+
+        <!-- EditText for student's first name input -->
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/dialog_fragment_edit_student_name_first_name_edit_text"
+            android:textSize="@dimen/application_text_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/application_large_margin"
+            android:layout_marginBottom="@dimen/application_medium_padding"
+            android:gravity="start"
+            android:hint="@string/fragment_add_student_first_name_hint"
+            android:inputType="textCapWords"
+            android:textCursorDrawable="@null"
+            tools:ignore="Autofill" />
+
+        <!-- EditText for student's last name input -->
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/dialog_fragment_edit_student_name_last_name_edit_text"
+            android:textSize="@dimen/application_text_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/application_large_margin"
+            android:gravity="start"
+            android:hint="@string/fragment_add_student_last_name_hint"
+            android:inputType="textCapWords"
+            android:textCursorDrawable="@null"
+            tools:ignore="Autofill" />
+
+    </LinearLayout>
+
+</ScrollView>

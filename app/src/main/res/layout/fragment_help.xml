@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Coordinates an AppBarLayout at the top and a NestedScrollView at the bottom -->
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_help_coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.HelpFragment">
+
+    <!-- Contains a CollapsingToolbarLayout -->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/fragment_help_app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_height"
+        android:fitsSystemWindows="false"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <!-- Contains a FrameLayout that will collapse in a Toolbar -->
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/fragment_help_collapsing_toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/fragment_help_tool_bar">
+
+            <!-- Contains an ImageView and one views that cover it -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Displays a picture of a school -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/fragment_help_image_content_description"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/fragment_help_image" />
+
+                <!-- Scrim to make the app name and tool bar menu more legible -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/top_bottom_scrim" />
+
+
+            </FrameLayout>
+
+            <!-- The app toolbar -->
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/fragment_help_tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:title="@string/fragment_word_lists_information_tool_bar_title" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!-- Contains a RecyclerView -->
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/fragment_help_nested_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+
+        <TextView
+            android:id="@+id/fragment_help_text_view"
+            style="@style/StartEndTextMarginStandardStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:paddingBottom="@dimen/fragment_word_lists_information_margin_bottom"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorLink="@color/colorLinks"
+            android:textSize="@dimen/application_text_size" />
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

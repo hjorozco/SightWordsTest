@@ -1,0 +1,70 @@
+<resources>
+    <dimen name="app_bar_height">160dp</dimen>
+
+    <dimen name="zero_dp">0dp</dimen>
+    <dimen name="divider_dimension">1dp</dimen>
+
+    <dimen name="application_tiny_margin">4dp</dimen>
+    <dimen name="application_small_margin">8dp</dimen>
+    <dimen name="application_standard_margin">16dp</dimen>
+    <dimen name="application_medium_margin">24dp</dimen>
+    <dimen name="application_large_margin">32dp</dimen>
+
+    <dimen name="application_tiny_padding">@dimen/application_tiny_margin</dimen>
+    <dimen name="application_small_padding">@dimen/application_small_margin</dimen>
+    <dimen name="application_standard_padding">@dimen/application_standard_margin</dimen>
+    <dimen name="application_medium_padding">@dimen/application_medium_margin</dimen>
+    <dimen name="application_large_padding">@dimen/application_large_margin</dimen>
+
+    <dimen name="application_test_type_radio_button_bottom_margin">6dp</dimen>
+
+    <!-- FAB dimens -->
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- Text dimens -->
+    <dimen name="application_small_text_size">14sp</dimen>
+    <dimen name="application_text_size">16sp</dimen>
+    <dimen name="application_big_text_size">24sp</dimen>
+
+    <!-- RecyclerView dimens -->
+    <dimen name="activity_main_content_padding_bottom">72dp</dimen>
+
+
+    <!-- Test Results fragment dimens -->
+    <dimen name="test_results_graph_height">240dp</dimen>
+    <dimen name="test_results_graph_border_thickness">1dp</dimen>
+
+    <dimen name="test_results_graph_padding_left_small">4dp</dimen>
+    <dimen name="test_results_graph_padding_left_medium">8dp</dimen>
+    <dimen name="test_results_graph_padding_left_big">14dp</dimen>
+    <dimen name="test_results_graph_padding_left_huge">23dp</dimen>
+
+    <dimen name="test_results_graph_padding_bottom_small">4dp</dimen>
+    <dimen name="test_results_graph_padding_bottom_medium">9dp</dimen>
+    <dimen name="test_results_graph_padding_bottom_big">16dp</dimen>
+    <dimen name="test_results_graph_padding_bottom_huge">24dp</dimen>
+
+    <dimen name="fragment_student_test_results_recycler_view_padding_bottom">72dp</dimen>
+
+    <!-- Test activity -->
+    <dimen name="card_view_elevation">4dp</dimen>
+    <dimen name="recycler_view_words_separation">4dp</dimen>
+    <dimen name="activity_test_content_padding_bottom">88dp</dimen>
+
+    <!-- Application Widget -->
+    <dimen name="widget_minimum_height_dimension">100dp</dimen>
+    <dimen name="widget_minimum_width_dimension">170dp</dimen>
+
+    <!-- Fragment Word Lists information -->
+    <dimen name="fragment_word_lists_information_margin_bottom">66dp</dimen>
+
+    <dimen name="dialog_fragment_share_image_view_2_top_margin">68dp</dimen>
+
+    <dimen name="dialog_fragment_load_students_results_not_loaded_info_image_view_top_margin">14dp</dimen>
+
+    <dimen name="dialog_fragment_download_resources_image_view_2_top_margin">70dp</dimen>
+
+    <dimen name="dialog_fragment_load_students_notification_info_image_margin_start">@dimen/application_large_margin</dimen>
+
+
+</resources>
