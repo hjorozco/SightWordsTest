@@ -40,6 +40,7 @@ import com.weebly.hectorjorozco.sightwordstest.adapters.StudentsListAdapter;
 import com.weebly.hectorjorozco.sightwordstest.database.AppDatabase;
 import com.weebly.hectorjorozco.sightwordstest.database.StudentEntry;
 import com.weebly.hectorjorozco.sightwordstest.executors.AppExecutors;
+import com.weebly.hectorjorozco.sightwordstest.models.ShareResult;
 import com.weebly.hectorjorozco.sightwordstest.models.SparseBooleanArrayParcelable;
 import com.weebly.hectorjorozco.sightwordstest.ui.dialogfragments.ChangeTestDialogFragment;
 import com.weebly.hectorjorozco.sightwordstest.ui.dialogfragments.ConfirmationDialogFragment;
@@ -181,6 +182,12 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
     public static final String SAVED_INSTANCE_STATE_RIGHT_SWIPED_KEY =
             "saved_instance_state_right_swiped_key";
 
+    public static final int LONG_PRESS_VIBRATION_TIME_IN_MILLISECONDS = 10;
+
+    // Share operation result codes
+    public static final byte SHARE_RESULT_DATA_SHARED = 0;
+    public static final byte SHARE_RESULT_NO_APP = 1;
+    public static final byte SHARE_RESULT_NO_FILE_CREATED = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -235,7 +242,9 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                 SparseBooleanArrayParcelable selectedStudents = savedInstanceState.getParcelable(SAVED_INSTANCE_STATE_SELECTED_ITEMS_KEY);
                 if (selectedStudents != null && selectedStudents.size() > 0) {
                     actionMode = startSupportActionMode(actionModeCallback);
-                    actionMode.setTitle(getString(R.string.action_mode_toolbar_title, selectedStudents.size()));
+                    if (actionMode != null) {
+                        actionMode.setTitle(getString(R.string.action_mode_toolbar_title, selectedStudents.size()));
+                    }
                     mAdapter.setSelectedStudents(selectedStudents);
                     mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_dark));
                 }
@@ -391,7 +400,6 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                             showShareAndDeleteMenuItems(true);
                             showAddAndLoadStudentsMenuItems(!(studentEntries.size() == MAX_NUMBER_OF_STUDENTS_IN_A_CLASS));
                             mMenu.findItem(R.id.menu_main_action_create_sample_class).setVisible(false);
-                            Log.d("TESTING", "Some students");
                         }
                         mAdapter.setStudentsListData(StudentsOrderUtils.
                                 UpdateStudentsListOrder(context, studentEntries));
@@ -739,7 +747,6 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
         replaceFragmentOnContainer(addStudentFragment);
     }
 
-    @SuppressWarnings("EmptyMethod")
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -850,7 +857,7 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                                     if (e.toString().contains(SQLITE_CONSTRAINT_UNIQUE_CODE)) {
                                         loadResult = STUDENT_DUPLICATED;
                                     }
-                                    Log.e(SIMPLE_NAME, e.getMessage());
+                                    Log.e(SIMPLE_NAME, Objects.requireNonNull(e.getMessage()));
                                 }
                             }
                         }
@@ -950,6 +957,7 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                         mAdapter.getItemCount(), studentWordSuffix, StudentsOrderUtils.getStudentsOrderString(this)));
             }
         }
+
         Toast.makeText(this, confirmationMessageId, Toast.LENGTH_SHORT).show();
 
     }
@@ -962,39 +970,45 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
         /* Checks if external storage is available for read and write */
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
 
-            File file = null;
+            ShareResult shareResult = null;
             List<StudentEntry> studentEntries = mAdapter.getStudentsListData();
             String fileNamePart1 = getString(R.string.share_class_results_text);
 
             switch (shareDocumentTypeSelected) {
                 case PDF_SIMPLE_SHARE_DOCUMENT_TYPE:
-                    file = ShareUtils.shareSimplePdfFile(this, studentEntries, null,
+                    shareResult = ShareUtils.shareSimplePdfFile(this, studentEntries, null,
                             fileNamePart1, null, null,
                             0);
                     break;
                 case PDF_DETAILED_SHARE_DOCUMENT_TYPE:
-                    file = ShareUtils.shareDetailedPdfFile(this, studentEntries, null,
+                    shareResult = ShareUtils.shareDetailedPdfFile(this, studentEntries, null,
                             fileNamePart1, null, null,
                             0);
                     break;
                 case CSV_SIMPLE_SHARE_DOCUMENT_TYPE:
-                    file = ShareUtils.shareCsvFile(this, studentEntries, null,
+                    shareResult = ShareUtils.shareCsvFile(this, studentEntries, null,
                             false, fileNamePart1, 0);
                     break;
                 case CSV_DETAILED_SHARE_DOCUMENT_TYPE:
-                    file = ShareUtils.shareCsvFile(this, studentEntries, null,
+                    shareResult = ShareUtils.shareCsvFile(this, studentEntries, null,
                             true, fileNamePart1, 0);
                     break;
             }
 
-            // If there was an error creating the file to share
-            if (file == null) {
-                Snackbar.make(mSnackView, R.string.activity_main_action_share_file_creation_error, FOUR_SECONDS).show();
-            } else {
-                // Adds the file to a queue to be deleted later in the onResume or onCreate methods
-                mFilesToDelete.add(file);
+            if (shareResult != null) {
+                switch (shareResult.getCode()) {
+                    case SHARE_RESULT_DATA_SHARED:
+                        // Adds the file to a queue to be deleted later in the onResume or onCreate methods
+                        mFilesToDelete.add(shareResult.getFile());
+                        break;
+                    case SHARE_RESULT_NO_APP:
+                        Snackbar.make(mSnackView, R.string.activity_main_action_share_no_app_error, FOUR_SECONDS).show();
+                        break;
+                    case SHARE_RESULT_NO_FILE_CREATED:
+                        Snackbar.make(mSnackView, R.string.activity_main_action_share_file_creation_error, FOUR_SECONDS).show();
+                        break;
+                }
             }
-
 
         } else {
             Snackbar.make(mSnackView, R.string.activity_main_action_save_storage_error, FOUR_SECONDS).show();

@@ -146,7 +146,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clipToPadding="false"
-
                     android:paddingBottom="@dimen/fragment_student_test_results_recycler_view_padding_bottom" />
 
             </LinearLayout>

@@ -1,6 +1,7 @@
 package com.weebly.hectorjorozco.sightwordstest.utils;
 
 import android.content.Context;
+import android.os.Vibrator;
 import android.widget.EditText;
 
 import com.weebly.hectorjorozco.sightwordstest.R;
@@ -15,6 +16,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+import static android.content.Context.VIBRATOR_SERVICE;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.EMPTY_STRING;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.STUDENT_WITH_NO_TESTS_GRADE;
 
@@ -313,6 +315,14 @@ public class Utils {
             return unknownWordsStringBuilder.toString();
         } else {
             return EMPTY_STRING;
+        }
+    }
+
+
+    public static void vibrate(Context context, int time){
+        Vibrator vibrator =(Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+        if (vibrator != null) {
+            vibrator.vibrate(time);
         }
     }
 

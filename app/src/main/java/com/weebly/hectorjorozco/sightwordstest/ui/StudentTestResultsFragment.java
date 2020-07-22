@@ -52,6 +52,7 @@ import com.weebly.hectorjorozco.sightwordstest.database.AppDatabase;
 import com.weebly.hectorjorozco.sightwordstest.database.StudentEntry;
 import com.weebly.hectorjorozco.sightwordstest.database.TestEntry;
 import com.weebly.hectorjorozco.sightwordstest.executors.AppExecutors;
+import com.weebly.hectorjorozco.sightwordstest.models.ShareResult;
 import com.weebly.hectorjorozco.sightwordstest.models.SparseBooleanArrayParcelable;
 import com.weebly.hectorjorozco.sightwordstest.ui.dialogfragments.ChangeTestDialogFragment;
 import com.weebly.hectorjorozco.sightwordstest.ui.dialogfragments.ConfirmationDialogFragment;
@@ -89,6 +90,9 @@ import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.PDF_SIMPLE
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.SAVED_INSTANCE_STATE_RIGHT_SWIPED_KEY;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.SAVED_INSTANCE_STATE_SELECTED_ITEMS_KEY;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.SAVED_INSTANCE_STATE_TEST_WITH_DELETE_BACKGROUND_POSITION_KEY;
+import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.SHARE_RESULT_DATA_SHARED;
+import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.SHARE_RESULT_NO_APP;
+import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.SHARE_RESULT_NO_FILE_CREATED;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.STUDENT_TEST_RESULTS_FRAGMENT_TEST_INFO;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.STUDENT_TEST_RESULTS_FRAGMENT_CHANGE_TEST_FOR_STUDENT_WITH_NO_TESTS;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.STUDENT_TEST_RESULTS_FRAGMENT_CHANGE_TEST_FOR_STUDENT_WITH_TESTS;
@@ -296,7 +300,9 @@ public class StudentTestResultsFragment extends Fragment implements TestsListAda
                         }
                     }
 
-                    actionMode.setTitle(getString(R.string.action_mode_toolbar_title, selectedTests.size()));
+                    if (actionMode != null) {
+                        actionMode.setTitle(getString(R.string.action_mode_toolbar_title, selectedTests.size()));
+                    }
                     mAdapter.setSelectedTests(selectedTests);
                     mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_dark));
                 }
@@ -1169,7 +1175,7 @@ public class StudentTestResultsFragment extends Fragment implements TestsListAda
         /* Checks if external storage is available for read and write */
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
 
-            File file = null;
+            ShareResult shareResult = null;
             List<TestEntry> testEntries = mAdapter.getTestsListData();
             int studentTestType = mStudentEntry.getTestType();
             int numberOfWordsOnStudentTest = WordUtils.getNumberOfWordsOnList(studentTestType);
@@ -1194,33 +1200,39 @@ public class StudentTestResultsFragment extends Fragment implements TestsListAda
 
             switch (shareDocumentTypeSelected) {
                 case PDF_SIMPLE_SHARE_DOCUMENT_TYPE:
-                    file = ShareUtils.shareSimplePdfFile(mFragmentActivity, null, testEntries,
+                    shareResult = ShareUtils.shareSimplePdfFile(mFragmentActivity, null, testEntries,
                             fileNamePart1, studentNameForStudentResults, testTitleForStudentResults,
                             mStudentEntry.getTestType());
                     break;
                 case PDF_DETAILED_SHARE_DOCUMENT_TYPE:
-                    file = ShareUtils.shareDetailedPdfFile(mFragmentActivity, null, testEntries,
+                    shareResult = ShareUtils.shareDetailedPdfFile(mFragmentActivity, null, testEntries,
                             fileNamePart1, studentNameForStudentResults, testTitleForStudentResults,
                             mStudentEntry.getTestType());
                     break;
                 case CSV_SIMPLE_SHARE_DOCUMENT_TYPE:
-                    file = ShareUtils.shareCsvFile(mFragmentActivity, null, testEntries,
+                    shareResult = ShareUtils.shareCsvFile(mFragmentActivity, null, testEntries,
                             false, fileNamePart1, numberOfWordsOnStudentTest);
                     break;
                 case CSV_DETAILED_SHARE_DOCUMENT_TYPE:
-                    file = ShareUtils.shareCsvFile(mFragmentActivity, null, testEntries,
+                    shareResult = ShareUtils.shareCsvFile(mFragmentActivity, null, testEntries,
                             true, fileNamePart1, numberOfWordsOnStudentTest);
                     break;
             }
 
-            // If there was an error creating the file to share
-            if (file == null) {
-                Snackbar.make(mSnackView, R.string.activity_main_action_share_file_creation_error, FOUR_SECONDS).show();
-            } else {
-                // Adds the file to a queue to be deleted later in the onResume or onCreate methods
-                mFilesToDelete.add(file);
+            if (shareResult != null) {
+                switch (shareResult.getCode()) {
+                    case SHARE_RESULT_DATA_SHARED:
+                        // Adds the file to a queue to be deleted later in the onResume or onCreate methods
+                        mFilesToDelete.add(shareResult.getFile());
+                        break;
+                    case SHARE_RESULT_NO_APP:
+                        Snackbar.make(mSnackView, R.string.activity_main_action_share_no_app_error, FOUR_SECONDS).show();
+                        break;
+                    case SHARE_RESULT_NO_FILE_CREATED:
+                        Snackbar.make(mSnackView, R.string.activity_main_action_share_file_creation_error, FOUR_SECONDS).show();
+                        break;
+                }
             }
-
 
         } else {
             Snackbar.make(mSnackView, R.string.activity_main_action_save_storage_error, FOUR_SECONDS).show();

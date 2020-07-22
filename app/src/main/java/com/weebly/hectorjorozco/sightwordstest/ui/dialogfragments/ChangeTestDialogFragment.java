@@ -253,18 +253,17 @@ public class ChangeTestDialogFragment extends DialogFragment {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                ArrayAdapter<Spanned> spinnerAdapter;
                 if (checkedId == R.id.change_test_dialog_fragment_dolch_radio_button) {
-                    ArrayAdapter<Spanned> dolchSpinnerAdapter = new ArrayAdapter<>
+                    spinnerAdapter = new ArrayAdapter<>
                             (context, testSelectorSpinnerItemLayout, testSelectorSpinnerDolchArray);
-                    testSelectorSpinner.setAdapter(dolchSpinnerAdapter);
-                    testSelectorSpinner.setSelection(0);
 
                 } else {
-                    ArrayAdapter<Spanned> frySpinnerAdapter = new ArrayAdapter<>
+                    spinnerAdapter = new ArrayAdapter<>
                             (context, testSelectorSpinnerItemLayout, testSelectorSpinnerFryArray);
-                    testSelectorSpinner.setAdapter(frySpinnerAdapter);
-                    testSelectorSpinner.setSelection(0);
                 }
+                testSelectorSpinner.setAdapter(spinnerAdapter);
+                testSelectorSpinner.setSelection(0);
             }
         });
 

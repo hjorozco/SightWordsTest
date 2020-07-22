@@ -20,6 +20,7 @@ import android.util.Log;
 import com.weebly.hectorjorozco.sightwordstest.R;
 import com.weebly.hectorjorozco.sightwordstest.database.StudentEntry;
 import com.weebly.hectorjorozco.sightwordstest.database.TestEntry;
+import com.weebly.hectorjorozco.sightwordstest.models.ShareResult;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
@@ -33,6 +34,9 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
+import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.SHARE_RESULT_DATA_SHARED;
+import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.SHARE_RESULT_NO_APP;
+import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.SHARE_RESULT_NO_FILE_CREATED;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.STUDENT_WITH_NO_TESTS_GRADE;
 
 public class ShareUtils {
@@ -68,9 +72,9 @@ public class ShareUtils {
      *                                   shared.
      * @return the CSV file created and shared.
      */
-    public static File shareCsvFile(Context context, List<StudentEntry> studentEntries,
-                                    List<TestEntry> testEntries, boolean detailed,
-                                    String csvFileNamePart1, int numberOfWordsOnStudentTest) {
+    public static ShareResult shareCsvFile(Context context, List<StudentEntry> studentEntries,
+                                           List<TestEntry> testEntries, boolean detailed,
+                                           String csvFileNamePart1, int numberOfWordsOnStudentTest) {
 
         // Sets a flag that indicates if the file shared is "class results" or "student results"
         boolean sharingClassResults = studentEntries != null;
@@ -222,11 +226,16 @@ public class ShareUtils {
                     context, context.getApplicationContext().getPackageName() + ".provider", csvFile));
             intentShareFile.putExtra(Intent.EXTRA_SUBJECT, csvFileName);
             intentShareFile.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            context.startActivity(Intent.createChooser(intentShareFile, chooserTitle));
 
-            return csvFile;
+            // Check if there is an app that can share the data
+            if (intentShareFile.resolveActivity(context.getPackageManager()) != null) {
+                context.startActivity(Intent.createChooser(intentShareFile, chooserTitle));
+                return new ShareResult(csvFile, SHARE_RESULT_DATA_SHARED);
+            } else {
+                return new ShareResult(null, SHARE_RESULT_NO_APP);
+            }
         } else {
-            return null;
+            return new ShareResult(null, SHARE_RESULT_NO_FILE_CREATED);
         }
     }
 
@@ -248,7 +257,7 @@ public class ShareUtils {
      *                                      are being shared.
      * @return a PDF file that was shared, null if the file was not created or shared.
      */
-    public static File shareSimplePdfFile(Context context, @Nullable List<StudentEntry> studentEntries,
+    public static ShareResult shareSimplePdfFile(Context context, @Nullable List<StudentEntry> studentEntries,
                                           List<TestEntry> testEntries, String fileNamePart1,
                                           String studentNameForStudentResults,
                                           String testTitleForStudentResults, int testTypeForStudentTestResults) {
@@ -595,12 +604,17 @@ public class ShareUtils {
             intentShareFile.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(
                     context, context.getApplicationContext().getPackageName() + ".provider", pdfFile));
             intentShareFile.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            context.startActivity(Intent.createChooser(intentShareFile,
-                    context.getString(R.string.menu_main_action_share_pdf_simple_chooser_title)));
 
-            return pdfFile;
+            // Check if there is an app that can share the data
+            if (intentShareFile.resolveActivity(context.getPackageManager()) != null) {
+                context.startActivity(Intent.createChooser(intentShareFile,
+                        context.getString(R.string.menu_main_action_share_pdf_simple_chooser_title)));
+                return new ShareResult(pdfFile, SHARE_RESULT_DATA_SHARED);
+            } else {
+                return new ShareResult(null, SHARE_RESULT_NO_APP);
+            }
         } else {
-            return null;
+            return new ShareResult(null, SHARE_RESULT_NO_FILE_CREATED);
         }
 
     }
@@ -623,7 +637,7 @@ public class ShareUtils {
      *                                      are being shared.
      * @return a PDF file that was shared, null if the file was not created or shared.
      */
-    public static File shareDetailedPdfFile(Context context, @Nullable List<StudentEntry> studentEntries,
+    public static ShareResult shareDetailedPdfFile(Context context, @Nullable List<StudentEntry> studentEntries,
                                             List<TestEntry> testEntries, String fileNamePart1,
                                             String studentNameForStudentResults,
                                             String testTitleForStudentResults, int testTypeForStudentTestResults) {
@@ -1067,13 +1081,17 @@ public class ShareUtils {
             intentShareFile.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(
                     context, context.getApplicationContext().getPackageName() + ".provider", pdfFile));
             intentShareFile.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            context.startActivity(Intent.createChooser(intentShareFile,
-                    context.getString(R.string.menu_main_action_share_pdf_detailed_chooser_title)));
 
-            // Adds the file to a queue to be deleted later in the onResume or onCreate methods
-            return pdfFile;
+            // Check if there is an app that can share the data
+            if (intentShareFile.resolveActivity(context.getPackageManager()) != null) {
+                context.startActivity(Intent.createChooser(intentShareFile,
+                        context.getString(R.string.menu_main_action_share_pdf_detailed_chooser_title)));
+                return new ShareResult(pdfFile, SHARE_RESULT_DATA_SHARED);
+            } else {
+                return new ShareResult(null, SHARE_RESULT_NO_APP);
+            }
         } else {
-            return null;
+            return new ShareResult(null, SHARE_RESULT_NO_FILE_CREATED);
         }
 
     }
@@ -1084,13 +1102,15 @@ public class ShareUtils {
                 Environment.DIRECTORY_DOCUMENTS)[0], EMPTY_STRING);
         if (directory.isDirectory()) {
             String[] children = directory.list();
-            for (String aChildren : children) {
-                if (aChildren.contains(context.getString(R.string.share_class_results_simple_text)) ||
-                        aChildren.contains(context.getString(R.string.share_class_results_detailed_text)) ||
-                        aChildren.contains(context.getString(R.string.share_student_results_simple_text)) ||
-                        aChildren.contains(context.getString(R.string.share_student_results_detailed_text))) {
-                    boolean deleted = new File(directory, aChildren).delete();
-                    Log.d(LOG_TAG, "File deletion result: " + deleted);
+            if (children != null) {
+                for (String aChildren : children) {
+                    if (aChildren.contains(context.getString(R.string.share_class_results_simple_text)) ||
+                            aChildren.contains(context.getString(R.string.share_class_results_detailed_text)) ||
+                            aChildren.contains(context.getString(R.string.share_student_results_simple_text)) ||
+                            aChildren.contains(context.getString(R.string.share_student_results_detailed_text))) {
+                        boolean deleted = new File(directory, aChildren).delete();
+                        Log.d(LOG_TAG, "File deletion result: " + deleted);
+                    }
                 }
             }
         }

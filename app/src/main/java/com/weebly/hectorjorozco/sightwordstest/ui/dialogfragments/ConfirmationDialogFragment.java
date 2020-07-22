@@ -56,6 +56,7 @@ public class ConfirmationDialogFragment extends DialogFragment {
         bundle.putInt(DIALOG_FRAGMENT_STUDENT_TO_DELETE_POSITION_ARGUMENT_KEY, itemToDeletePosition);
         bundle.putByte(DIALOG_FRAGMENT_CALLER_ARGUMENT_KEY, caller);
         confirmationDialogFragment.setArguments(bundle);
+        confirmationDialogFragment.setCancelable(false);
         return confirmationDialogFragment;
     }
 

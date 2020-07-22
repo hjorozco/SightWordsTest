@@ -256,7 +256,7 @@ public class TestActivity extends AppCompatActivity implements ConfirmationDialo
     /**
      * Sets up a separation between elements of a RecyclerView
      */
-    class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
+    static class ItemOffsetDecoration extends RecyclerView.ItemDecoration {
 
         private final int mItemOffset;
 

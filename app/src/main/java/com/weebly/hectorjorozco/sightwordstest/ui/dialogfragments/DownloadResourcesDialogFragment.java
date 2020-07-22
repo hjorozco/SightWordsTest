@@ -180,7 +180,6 @@ public class DownloadResourcesDialogFragment extends DialogFragment {
                     mTestSelectorSpinner.setAdapter(dolchSpinnerAdapter);
                     mTestSelectorSpinner.setSelection(0);
                     scrollToBottomOfScrollView();
-
                 } else {
                     mTestSelectorSpinner.setVisibility(View.VISIBLE);
                     ArrayAdapter<Spanned> frySpinnerAdapter = new ArrayAdapter<>

@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.weebly.hectorjorozco.sightwordstest.R;
 import com.weebly.hectorjorozco.sightwordstest.database.TestEntry;
 import com.weebly.hectorjorozco.sightwordstest.models.SparseBooleanArrayParcelable;
+import com.weebly.hectorjorozco.sightwordstest.ui.MainActivity;
+import com.weebly.hectorjorozco.sightwordstest.utils.Utils;
 import com.weebly.hectorjorozco.sightwordstest.utils.WordUtils;
 
 import java.text.SimpleDateFormat;
@@ -255,6 +257,7 @@ public class TestsListAdapter extends RecyclerView.Adapter<TestsListAdapter.Test
         @Override
         public boolean onLongClick(View v) {
             mItemClickListener.onItemLongClick(getAdapterPosition());
+            Utils.vibrate(mContext, MainActivity.LONG_PRESS_VIBRATION_TIME_IN_MILLISECONDS);
             return true;
         }
     }

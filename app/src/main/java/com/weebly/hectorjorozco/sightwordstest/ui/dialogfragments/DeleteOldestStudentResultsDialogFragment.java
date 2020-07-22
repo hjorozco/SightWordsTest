@@ -168,7 +168,7 @@ public class DeleteOldestStudentResultsDialogFragment extends DialogFragment {
                     Editable numberOfTestsToDeleteText = numberOfTestsToDeleteEditText.getText();
 
                     if (numberOfTestsToDeleteText != null && numberOfTestsToDeleteText.length() != 0) {
-                        int numberOfTestsToDelete = Integer.valueOf(numberOfTestsToDeleteText.toString());
+                        int numberOfTestsToDelete = Integer.parseInt(numberOfTestsToDeleteText.toString());
 
                         if (numberOfTestsToDelete == 0) {
                             numberOfTestsToDeleteEditText.setError(getString(R.string.dialog_fragment_delete_oldest_student_results_edit_text_error_message, numberOfTests - 1));

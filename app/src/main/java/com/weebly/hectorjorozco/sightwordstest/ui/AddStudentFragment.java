@@ -270,7 +270,7 @@ public class AddStudentFragment extends Fragment implements
                                     });
 
                                 }
-                                Log.e(SIMPLE_NAME, e.getMessage());
+                                Log.e(SIMPLE_NAME, Objects.requireNonNull(e.getMessage()));
                             }
                         }
 

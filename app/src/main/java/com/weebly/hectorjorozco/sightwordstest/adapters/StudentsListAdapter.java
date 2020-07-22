@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
-import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,9 @@ import android.widget.TextView;
 import com.weebly.hectorjorozco.sightwordstest.R;
 import com.weebly.hectorjorozco.sightwordstest.database.StudentEntry;
 import com.weebly.hectorjorozco.sightwordstest.models.SparseBooleanArrayParcelable;
+import com.weebly.hectorjorozco.sightwordstest.ui.MainActivity;
 import com.weebly.hectorjorozco.sightwordstest.utils.TestTypeUtils;
+import com.weebly.hectorjorozco.sightwordstest.utils.Utils;
 import com.weebly.hectorjorozco.sightwordstest.utils.WordUtils;
 
 import java.text.SimpleDateFormat;
@@ -296,7 +297,7 @@ public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapte
                 @Override
                 public boolean onLongClick(View v) {
                     mStudentsListAdapterListener.onRowLongClick(getAdapterPosition());
-                    studentListItemLinearLayout.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                    Utils.vibrate(mContext, MainActivity.LONG_PRESS_VIBRATION_TIME_IN_MILLISECONDS);
                     return true;
                 }
             });
@@ -305,7 +306,7 @@ public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapte
                 @Override
                 public boolean onLongClick(View v) {
                     mStudentsListAdapterListener.onRowLongClick(getAdapterPosition());
-                    studentListItemLinearLayout.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                    Utils.vibrate(mContext, MainActivity.LONG_PRESS_VIBRATION_TIME_IN_MILLISECONDS);
                     return true;
                 }
             });
@@ -313,5 +314,6 @@ public class StudentsListAdapter extends RecyclerView.Adapter<StudentsListAdapte
         }
 
     }
+
 
 }

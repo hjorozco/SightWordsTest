@@ -174,6 +174,7 @@
 
     <string name="activity_main_action_save_storage_error">ERROR! External storage not available. Please mount it.</string>
     <string name="activity_main_action_share_file_creation_error">ERROR! File to share could not be created.</string>
+    <string name="activity_main_action_share_no_app_error">ERROR! No app available to share data.</string>
     <string name="activity_main_action_load_file_read_error">ERROR! CSV file not read. No students added.</string>
 
     <string name="activity_main_dialog_fragment_error">Error. Try again later.</string>
@@ -334,6 +335,8 @@
         the last test administered to the students.&lt;br/&gt;
         When you press on a particular student you will see all the tests administered to him.&lt;br/&gt;
         When a student reads all words correctly on a test, this result will be displayed with a colored background.&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+        &lt;b>Share test results.&lt;/b>&lt;br/&gt;&lt;br/&gt;
+        You can share your class test results or a particular student test results in both PDF and CSV formats.&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
         &lt;b>App Widget.&lt;/b>&lt;br/&gt;&lt;br/&gt;
         This app has a Widget that displays all the information found on the main screen of the app.&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
         &lt;b>How information is saved.&lt;/b>&lt;br/&gt;&lt;br/&gt;
@@ -473,7 +476,8 @@
     <string name="add_test_alert_dialog_tag">add_test</string>
     <string name="about_dialog_fragment_title">About</string>
     <string name="about_dialog_fragment_text">
-        &lt;br/>App designed and developed by:&lt;br/&gt;&lt;br/&gt;&lt;i>&lt;b>&lt;a href="https://hectorjorozco.weebly.com">Hector J. Orozco&lt;/a>&lt;/b>&lt;/i>&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
+        &lt;br/>&lt;b>Sight Words Tests version 1.2&lt;/b>&lt;br/>&lt;br/>App designed and developed
+        by:&lt;br/&gt;&lt;br/&gt;&lt;i>&lt;b>&lt;a href="https://hectorjorozco.weebly.com">Hector J. Orozco&lt;/a>&lt;/b>&lt;/i>&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
         &lt;i>Credits.&lt;/i>&lt;br/&gt;&lt;br/&gt;Icons made by &lt;i>&lt;a href="https://www.freepik.com">Freepik&lt;/a>&lt;/i> and
         &lt;i>&lt;a href="https://www.flaticon.com/authors/wissawa-khamsriwath">Wissawa Khamsriwath&lt;/a>&lt;/i> from
         &lt;i>&lt;a href="https://www.flaticon.com">www.flaticon.com&lt;/a>&lt;/i> licensed by

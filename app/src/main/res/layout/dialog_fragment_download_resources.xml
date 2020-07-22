@@ -40,6 +40,7 @@
                         android:theme="@style/controlStyle" />
 
                     <RadioButton
+                        android:id="@+id/dialog_fragment_download_resources_flash_cards_radio_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/flash_cards_radio_button_text"
@@ -74,6 +75,7 @@
                         android:theme="@style/controlStyle" />
 
                     <RadioButton
+                        android:id="@+id/dialog_fragment_download_resources_fry_radio_button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/fry_radio_button_text"
