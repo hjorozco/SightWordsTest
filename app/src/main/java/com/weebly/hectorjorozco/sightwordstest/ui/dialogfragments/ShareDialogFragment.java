@@ -5,10 +5,10 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.widget.CompoundButtonCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.core.widget.CompoundButtonCompat;
+import androidx.appcompat.app.AlertDialog;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -119,7 +119,8 @@ public class ShareDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 DialogFragmentUtils.showInfoMessageDialogFragment(getString(R.string.share_dialog_fragment_info_text_1),
-                        getString(R.string.share_dialog_fragment_info_tag_1), SHARE_DIALOG_FRAGMENT, isDefaultTest, getFragmentManager());
+                        getString(R.string.share_dialog_fragment_info_tag_1), SHARE_DIALOG_FRAGMENT,
+                        isDefaultTest, getParentFragmentManager());
             }
         });
 
@@ -127,7 +128,8 @@ public class ShareDialogFragment extends DialogFragment {
             @Override
             public void onClick(View v) {
                 DialogFragmentUtils.showInfoMessageDialogFragment(getString(R.string.share_dialog_fragment_info_text_2),
-                        getString(R.string.share_dialog_fragment_info_tag_2), SHARE_DIALOG_FRAGMENT, isDefaultTest, getFragmentManager());
+                        getString(R.string.share_dialog_fragment_info_tag_2), SHARE_DIALOG_FRAGMENT, isDefaultTest,
+                        getParentFragmentManager());
             }
         });
 

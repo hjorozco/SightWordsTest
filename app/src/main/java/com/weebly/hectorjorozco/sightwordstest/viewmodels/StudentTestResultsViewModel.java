@@ -1,7 +1,7 @@
 package com.weebly.hectorjorozco.sightwordstest.viewmodels;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.weebly.hectorjorozco.sightwordstest.database.AppDatabase;
 import com.weebly.hectorjorozco.sightwordstest.database.TestEntry;

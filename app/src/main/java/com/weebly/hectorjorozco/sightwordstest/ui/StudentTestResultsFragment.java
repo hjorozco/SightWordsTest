@@ -1,28 +1,31 @@
 package com.weebly.hectorjorozco.sightwordstest.ui;
 
 import android.app.Activity;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+
+import androidx.core.content.res.ResourcesCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.MenuCompat;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.TooltipCompat;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.core.view.MenuCompat;
+import androidx.appcompat.view.ActionMode;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.widget.TooltipCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -81,10 +84,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
+import static androidx.recyclerview.widget.DividerItemDecoration.VERTICAL;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.CSV_DETAILED_SHARE_DOCUMENT_TYPE;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.CSV_SIMPLE_SHARE_DOCUMENT_TYPE;
-import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.FOUR_SECONDS;
+import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.DARK_LINE;
+import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.LIGHT_LINE;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.PDF_DETAILED_SHARE_DOCUMENT_TYPE;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.PDF_SIMPLE_SHARE_DOCUMENT_TYPE;
 import static com.weebly.hectorjorozco.sightwordstest.ui.MainActivity.SAVED_INSTANCE_STATE_RIGHT_SWIPED_KEY;
@@ -304,7 +308,7 @@ public class StudentTestResultsFragment extends Fragment implements TestsListAda
                         actionMode.setTitle(getString(R.string.action_mode_toolbar_title, selectedTests.size()));
                     }
                     mAdapter.setSelectedTests(selectedTests);
-                    mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_dark));
+                    setupRecyclerViewDivider(DARK_LINE);
                 }
             }
             if (savedInstanceState.containsKey(SAVED_INSTANCE_STATE_RIGHT_SWIPED_KEY) &&
@@ -410,7 +414,7 @@ public class StudentTestResultsFragment extends Fragment implements TestsListAda
     private void setUpRecyclerView() {
         // Set up RecyclerView
         mDividerItemDecoration = new DividerItemDecoration(mFragmentActivity.getApplicationContext(), VERTICAL);
-        mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_light));
+        setupRecyclerViewDivider(LIGHT_LINE);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mFragmentActivity));
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addItemDecoration(mDividerItemDecoration);
@@ -491,11 +495,12 @@ public class StudentTestResultsFragment extends Fragment implements TestsListAda
         StudentTestResultsViewModelFactory viewModelFactory =
                 new StudentTestResultsViewModelFactory(mAppDatabase, mStudentEntry.getId());
 
-        final StudentTestResultsViewModel viewModel
-                = ViewModelProviders.of(this, viewModelFactory).get(StudentTestResultsViewModel.class);
+        // Creates the View Model
+        final StudentTestResultsViewModel viewModel = new ViewModelProvider(this, viewModelFactory).
+                get(StudentTestResultsViewModel.class);
 
         // Observe the LiveData object in the ViewModel
-        viewModel.getTestEntries().observe(this, new Observer<List<TestEntry>>() {
+        viewModel.getTestEntries().observe(getViewLifecycleOwner(), new Observer<List<TestEntry>>() {
             @Override
             public void onChanged(@Nullable List<TestEntry> testEntries) {
                 if (testEntries != null) {
@@ -860,9 +865,7 @@ public class StudentTestResultsFragment extends Fragment implements TestsListAda
         // Sets StudentTestResultsFragment as the target fragment to get results from ConfirmationDialogFragment
         confirmationDialogFragment.setTargetFragment(this, 400);
 
-        if (getFragmentManager() != null) {
-            confirmationDialogFragment.show(getFragmentManager(), getString(R.string.delete_tests_confirmation_dialog_fragment_tag));
-        }
+        confirmationDialogFragment.show(getParentFragmentManager(), getString(R.string.delete_tests_confirmation_dialog_fragment_tag));
     }
 
 
@@ -1226,16 +1229,16 @@ public class StudentTestResultsFragment extends Fragment implements TestsListAda
                         mFilesToDelete.add(shareResult.getFile());
                         break;
                     case SHARE_RESULT_NO_APP:
-                        Snackbar.make(mSnackView, R.string.activity_main_action_share_no_app_error, FOUR_SECONDS).show();
+                        Snackbar.make(mSnackView, R.string.activity_main_action_share_no_app_error, 4000).show();
                         break;
                     case SHARE_RESULT_NO_FILE_CREATED:
-                        Snackbar.make(mSnackView, R.string.activity_main_action_share_file_creation_error, FOUR_SECONDS).show();
+                        Snackbar.make(mSnackView, R.string.activity_main_action_share_file_creation_error, 4000).show();
                         break;
                 }
             }
 
         } else {
-            Snackbar.make(mSnackView, R.string.activity_main_action_save_storage_error, FOUR_SECONDS).show();
+            Snackbar.make(mSnackView, R.string.activity_main_action_save_storage_error, 4000).show();
         }
     }
 
@@ -1406,7 +1409,7 @@ public class StudentTestResultsFragment extends Fragment implements TestsListAda
             }
 
             if (mAdapter.getSelectedTestsCount() == 0) {
-                mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_dark));
+                setupRecyclerViewDivider(DARK_LINE);
             }
         }
 
@@ -1417,7 +1420,7 @@ public class StudentTestResultsFragment extends Fragment implements TestsListAda
         // If the last selected test was deselected finish action mode
         if (selectedTestsCount == 0) {
             actionMode.finish();
-            mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_light));
+            setupRecyclerViewDivider(LIGHT_LINE);
         } else {
             actionMode.setTitle(getString(R.string.action_mode_toolbar_title, selectedTestsCount));
             actionMode.invalidate();
@@ -1482,8 +1485,21 @@ public class StudentTestResultsFragment extends Fragment implements TestsListAda
         public void onDestroyActionMode(ActionMode mode) {
             mAdapter.clearSelectedTests();
             actionMode = null;
-            mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_light));
+            setupRecyclerViewDivider(LIGHT_LINE);
         }
+    }
+
+
+    // Sets the recycler view divider to be a light line or a dark line
+    private void setupRecyclerViewDivider(boolean light) {
+        int drawableId;
+        if (light) {
+            drawableId = R.drawable.horizontal_line_light;
+        } else {
+            drawableId = R.drawable.horizontal_line_dark;
+        }
+        mDividerItemDecoration.setDrawable(Objects.requireNonNull(ResourcesCompat.getDrawable
+                (getResources(), drawableId, null)));
     }
 
 

@@ -1,6 +1,6 @@
 package com.weebly.hectorjorozco.sightwordstest.utils;
 
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 import android.text.Html;
 
 import com.weebly.hectorjorozco.sightwordstest.ui.dialogfragments.MessageDialogFragment;

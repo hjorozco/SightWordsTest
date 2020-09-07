@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Contains a fragment that shows the UI to add a new student -->
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/add_student_fragment"
     android:name="com.weebly.hectorjorozco.sightwordstest.ui.AddStudentFragment"

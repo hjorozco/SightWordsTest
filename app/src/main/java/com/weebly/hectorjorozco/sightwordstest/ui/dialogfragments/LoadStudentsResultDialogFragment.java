@@ -5,10 +5,10 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.widget.CompoundButtonCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.core.widget.CompoundButtonCompat;
+import androidx.appcompat.app.AlertDialog;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -201,10 +201,8 @@ public class LoadStudentsResultDialogFragment extends DialogFragment {
                 MessageDialogFragment.newInstance(
                         Html.fromHtml(text), title, true, LOAD_STUDENTS_RESULT_DIALOG_FRAGMENT, EMPTY_STRING);
 
-        if (getFragmentManager() != null) {
-            messageDialogFragment.show(getFragmentManager(),
-                    getString(R.string.about_dialog_fragment_tag));
-        }
+        messageDialogFragment.show(getParentFragmentManager(),
+                getString(R.string.about_dialog_fragment_tag));
     }
 
 }

@@ -8,10 +8,10 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.widget.CompoundButtonCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.core.widget.CompoundButtonCompat;
+import androidx.appcompat.app.AlertDialog;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,7 +86,7 @@ public class LoadStudentsNotificationDialogFragment extends DialogFragment {
             public void onClick(View v) {
                 DialogFragmentUtils.showInfoMessageDialogFragment(getString(R.string.dialog_fragment_load_students_notification_info_text),
                         getString(R.string.dialog_fragment_load_students_notification_info_tag),
-                        LOAD_STUDENTS_NOTIFICATION_DIALOG_FRAGMENT, true, getFragmentManager());
+                        LOAD_STUDENTS_NOTIFICATION_DIALOG_FRAGMENT, true, getParentFragmentManager());
             }
         });
 

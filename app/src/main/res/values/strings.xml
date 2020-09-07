@@ -198,7 +198,7 @@
     <string name="menu_main_action_feedback_email_body">Please write your feedback here. Thank you!\n\n\n\n</string>
     <string name="menu_main_action_feedback_no_email_app_error">You need an email app installed on your device to send feedback.</string>
 
-    <string name="menu_main_action_donate_website_url">https://hectorjorozco.weebly.com/sight-words-test-app-donation.html</string>
+    <string name="menu_main_action_donate_website_url">https://hectorjorozco.weebly.com/donate.html</string>
     <string name="menu_main_action_donate_no_browser_app_error">You need a browser app installed on your device to see the donation webpage.</string>
 
     <!-- ********** TEST ACTIVITY strings ********** -->
@@ -476,7 +476,7 @@
     <string name="add_test_alert_dialog_tag">add_test</string>
     <string name="about_dialog_fragment_title">About</string>
     <string name="about_dialog_fragment_text">
-        &lt;br/>&lt;b>Sight Words Tests version 1.2&lt;/b>&lt;br/>&lt;br/>App designed and developed
+        &lt;br/>&lt;b>Sight Words Tests version 1.5&lt;/b>&lt;br/>&lt;br/>App designed and developed
         by:&lt;br/&gt;&lt;br/&gt;&lt;i>&lt;b>&lt;a href="https://hectorjorozco.weebly.com">Hector J. Orozco&lt;/a>&lt;/b>&lt;/i>&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
         &lt;i>Credits.&lt;/i>&lt;br/&gt;&lt;br/&gt;Icons made by &lt;i>&lt;a href="https://www.freepik.com">Freepik&lt;/a>&lt;/i> and
         &lt;i>&lt;a href="https://www.flaticon.com/authors/wissawa-khamsriwath">Wissawa Khamsriwath&lt;/a>&lt;/i> from
@@ -490,8 +490,7 @@
         &lt;i>&lt;a href="https://www.android.com/">Android&lt;/a>&lt;/i> (mobile operating system developed by Google).
         &lt;i>&lt;a href="https://source.android.com/setup/start/licenses">Copyright 2018 The Android Open Source Project&lt;/a>&lt;/i>.&lt;br/>&lt;br/>
         &lt;i>&lt;a href="http://facebook.github.io/stetho/">Stetho&lt;/a>&lt;/i> (debug bridge for Android applications).
-        &lt;i>&lt;a href="https://github.com/facebook/stetho/blob/master/LICENSE">BSD-license&lt;/a>&lt;/i>, and
-        &lt;i>&lt;a href="https://github.com/facebook/stetho/blob/master/PATENTS">patent grant&lt;/a>&lt;/i>.&lt;br/>&lt;br/>
+        &lt;i>&lt;a href="https://github.com/facebook/stetho/blob/master/LICENSE">MIT-license&lt;/a>&lt;/i>.&lt;br/>&lt;br/>
         &lt;i>&lt;a href="http://androidplot.com/">Androidplot&lt;/a>&lt;/i> (library for creating dynamic and static charts).
         &lt;i>&lt;a href="https://github.com/halfhp/androidplot#license">Copyright 2018 Androidplot.com&lt;/a>&lt;/i>.&lt;br/>&lt;br/>
         &lt;i>&lt;a href="https://commons.apache.org/proper/commons-csv/index.html">Apache Commons CSV&lt;/a>&lt;/i>

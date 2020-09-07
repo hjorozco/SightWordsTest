@@ -3,7 +3,7 @@
 <!-- Lets the user to add a new student -->
 
 <!-- Coordinates an AppBarLayout at the top and a NestedScrollView at the bottom -->
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_add_student_coordinator_layout"
@@ -13,7 +13,7 @@
     tools:context=".ui.AddStudentFragment">
 
     <!-- Contains a CollapsingToolbarLayout -->
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/fragment_add_student_app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/app_bar_height"
@@ -21,7 +21,7 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <!-- Contains a FrameLayout that will collapse in a Toolbar -->
-        <android.support.design.widget.CollapsingToolbarLayout
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/fragment_add_student_collapsing_toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -52,7 +52,7 @@
             </FrameLayout>
 
             <!-- The app toolbar -->
-            <android.support.v7.widget.Toolbar
+            <androidx.appcompat.widget.Toolbar
                 android:id="@+id/fragment_add_student_tool_bar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
@@ -61,16 +61,16 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 app:title="@string/fragment_add_student_toolbar_title" />
 
-        </android.support.design.widget.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <!-- Contains a LinearLayout -->
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/fragment_add_student_nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         tools:context=".ui.AddStudentFragment">
 
         <!-- Contains the views that let the user enter a new student data -->
@@ -143,7 +143,7 @@
                     android:textStyle="italic" />
 
                 <!-- When clicked will save a student in the DB students table -->
-                <android.support.design.widget.FloatingActionButton
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/fragment_add_student_fab"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -156,6 +156,6 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,7 +1,7 @@
 package com.weebly.hectorjorozco.sightwordstest.utils;
 
 import android.content.Context;
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 import android.text.Html;
 import android.text.Layout;
 import android.text.method.LinkMovementMethod;

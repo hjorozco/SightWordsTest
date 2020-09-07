@@ -5,14 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.AsyncTask;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.TooltipCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.widget.TooltipCompat;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -280,7 +280,7 @@ public class TestActivity extends AppCompatActivity implements ConfirmationDialo
 
     // Saves the list of word objects on rotation to preserve their pressed state.
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
         List<Word> words = mAdapter.getWordsListData();

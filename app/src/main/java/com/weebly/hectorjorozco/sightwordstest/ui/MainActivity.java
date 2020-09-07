@@ -1,8 +1,11 @@
 package com.weebly.hectorjorozco.sightwordstest.ui;
 
 import android.app.Activity;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+
+import androidx.core.content.res.ResourcesCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -11,20 +14,24 @@ import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.MenuCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ActionMode;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.helper.ItemTouchHelper;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.core.view.MenuCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.ItemTouchHelper;
+
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
@@ -77,7 +84,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-import static android.support.v7.widget.DividerItemDecoration.VERTICAL;
+import static androidx.recyclerview.widget.DividerItemDecoration.VERTICAL;
 import static com.weebly.hectorjorozco.sightwordstest.utils.ShareUtils.deleteFilesFromExternalStoragePrivateDocumentsDirectory;
 
 public class MainActivity extends AppCompatActivity implements StudentsListAdapter.StudentsListAdapterListener,
@@ -155,8 +162,6 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
 
     public static final int READ_CSV_FILE_REQUEST_CODE = 42;
 
-    public static final int FOUR_SECONDS = 4000;
-
     public static final int MAX_NUMBER_OF_STUDENTS_IN_A_CLASS = 100;
 
     // Add student constants
@@ -188,6 +193,10 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
     public static final byte SHARE_RESULT_DATA_SHARED = 0;
     public static final byte SHARE_RESULT_NO_APP = 1;
     public static final byte SHARE_RESULT_NO_FILE_CREATED = 2;
+
+    // Values used to set up the divider line of the Recycler View
+    public static final boolean LIGHT_LINE = true;
+    public static final boolean DARK_LINE = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -246,7 +255,8 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                         actionMode.setTitle(getString(R.string.action_mode_toolbar_title, selectedStudents.size()));
                     }
                     mAdapter.setSelectedStudents(selectedStudents);
-                    mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_dark));
+                    mDividerItemDecoration.setDrawable(Objects.requireNonNull(ResourcesCompat.getDrawable
+                            (getResources(), R.drawable.horizontal_line_dark, null)));
                 }
             }
             if (savedInstanceState.containsKey(SAVED_INSTANCE_STATE_RIGHT_SWIPED_KEY) &&
@@ -298,7 +308,8 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
 
     private void setupRecyclerView() {
         mDividerItemDecoration = new DividerItemDecoration(getApplicationContext(), VERTICAL);
-        mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_light));
+        mDividerItemDecoration.setDrawable(Objects.requireNonNull(ResourcesCompat.getDrawable
+                (getResources(), R.drawable.horizontal_line_light, null)));
 
         // Set up RecyclerView that shows a students list.
         mRecyclerView = findViewById(R.id.activity_main_recycler_view);
@@ -379,11 +390,11 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
     // the STUDENTS table db data an updates the RecyclerView and Widget when the data changes.
     private void setupViewModel() {
         final Context context = this;
-        MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        MainViewModel mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+
         mainViewModel.getStudents().observe(this, new Observer<List<StudentEntry>>() {
             @Override
             public void onChanged(@Nullable List<StudentEntry> studentEntries) {
-                Log.d("TESTING", "OnChanged");
                 if (studentEntries != null) {
                     if (studentEntries.isEmpty()) {
                         showEmptyListMessages(true, studentEntries.size());
@@ -391,7 +402,6 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                             showShareAndDeleteMenuItems(false);
                             showAddAndLoadStudentsMenuItems(true);
                             mMenu.findItem(R.id.menu_main_action_create_sample_class).setVisible(true);
-                            Log.d("TESTING", "No students");
                         }
                         mAdapter.setStudentsListData(studentEntries);
                     } else {
@@ -477,7 +487,7 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
     }
 
 
-    private void showCreateSampleClassConfirmationDialogFragment(){
+    private void showCreateSampleClassConfirmationDialogFragment() {
         ConfirmationDialogFragment confirmationDialogFragment =
                 ConfirmationDialogFragment.newInstance(
                         Html.fromHtml(getString(R.string.create_sample_class_confirmation_dialog_fragment_text)),
@@ -748,7 +758,7 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
         // If there are students selected
@@ -1002,16 +1012,16 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                         mFilesToDelete.add(shareResult.getFile());
                         break;
                     case SHARE_RESULT_NO_APP:
-                        Snackbar.make(mSnackView, R.string.activity_main_action_share_no_app_error, FOUR_SECONDS).show();
+                        Snackbar.make(mSnackView, R.string.activity_main_action_share_no_app_error, 4000).show();
                         break;
                     case SHARE_RESULT_NO_FILE_CREATED:
-                        Snackbar.make(mSnackView, R.string.activity_main_action_share_file_creation_error, FOUR_SECONDS).show();
+                        Snackbar.make(mSnackView, R.string.activity_main_action_share_file_creation_error, 4000).show();
                         break;
                 }
             }
 
         } else {
-            Snackbar.make(mSnackView, R.string.activity_main_action_save_storage_error, FOUR_SECONDS).show();
+            Snackbar.make(mSnackView, R.string.activity_main_action_save_storage_error, 4000).show();
         }
     }
 
@@ -1150,7 +1160,7 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                 break;
             case ConfirmationDialogFragment.MAIN_ACTIVITY_CREATE_SAMPLE_CLASS:
                 if (answerYes) {
-                     Utils.createSampleClass(this);
+                    Utils.createSampleClass(this);
                 }
                 break;
         }
@@ -1273,7 +1283,7 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                     getString(R.string.dialog_fragment_load_students_result_tag));
 
         } catch (IOException e) {
-            Snackbar.make(mSnackView, R.string.activity_main_action_load_file_read_error, FOUR_SECONDS).show();
+            Snackbar.make(mSnackView, R.string.activity_main_action_load_file_read_error, 4000).show();
             e.printStackTrace();
         }
     }
@@ -1472,7 +1482,7 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
         public void onDestroyActionMode(ActionMode mode) {
             mAdapter.clearSelectedStudents();
             actionMode = null;
-            mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_light));
+            setupRecyclerViewDivider(LIGHT_LINE);
         }
     }
 
@@ -1509,7 +1519,7 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
         if (actionMode == null) {
             actionMode = startSupportActionMode(actionModeCallback);
             if (mAdapter.getSelectedStudentsCount() == 0) {
-                mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_dark));
+                setupRecyclerViewDivider(DARK_LINE);
             }
         }
 
@@ -1520,11 +1530,23 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
         // If the last selected student was deselected finish action mode
         if (selectedStudentsCount == 0) {
             actionMode.finish();
-            mDividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.horizontal_line_light));
+            setupRecyclerViewDivider(LIGHT_LINE);
         } else {
             actionMode.setTitle(getString(R.string.action_mode_toolbar_title, selectedStudentsCount));
             actionMode.invalidate();
         }
+    }
+
+    // Sets the recycler view divider to be a light line or a dark line
+    private void setupRecyclerViewDivider(boolean light) {
+        int drawableId;
+        if (light) {
+            drawableId = R.drawable.horizontal_line_light;
+        } else {
+            drawableId = R.drawable.horizontal_line_dark;
+        }
+        mDividerItemDecoration.setDrawable(Objects.requireNonNull(ResourcesCompat.getDrawable
+                (getResources(), drawableId, null)));
     }
 
 }

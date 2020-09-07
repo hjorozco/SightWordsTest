@@ -4,9 +4,9 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
+import androidx.appcompat.app.AlertDialog;
 import android.text.Editable;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -105,7 +105,7 @@ public class DeleteOldestStudentResultsDialogFragment extends DialogFragment {
                 public void onClick(View v) {
                     DialogFragmentUtils.showInfoMessageDialogFragment(getString(R.string.dialog_fragment_delete_oldest_student_results_info_message),
                             getString(R.string.dialog_fragment_delete_oldest_student_results_info_tag),
-                            DELETE_OLDEST_STUDENT_RESULTS_DIALOG_FRAGMENT, isDefaultTest, getFragmentManager());
+                            DELETE_OLDEST_STUDENT_RESULTS_DIALOG_FRAGMENT, isDefaultTest, getParentFragmentManager());
                 }
             });
 
