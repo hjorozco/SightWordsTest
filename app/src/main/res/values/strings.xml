@@ -2,6 +2,7 @@
 
     <!-- *** Main app strings *** -->
     <string name="app_name">Sight Words Test</string>
+    <string name="version_name">1.6</string>
     <string name="yes_uppercase_text">YES</string>
     <string name="no_uppercase_text">NO</string>
     <string name="no_lowercase_text">no</string>
@@ -476,7 +477,7 @@
     <string name="add_test_alert_dialog_tag">add_test</string>
     <string name="about_dialog_fragment_title">About</string>
     <string name="about_dialog_fragment_text">
-        &lt;br/>&lt;b>Sight Words Tests version 1.5&lt;/b>&lt;br/>&lt;br/>App designed and developed
+        &lt;br/>&lt;b>Sight Words Test version %1$s&lt;/b>&lt;br/>&lt;br/>App designed and developed
         by:&lt;br/&gt;&lt;br/&gt;&lt;i>&lt;b>&lt;a href="https://hectorjorozco.weebly.com">Hector J. Orozco&lt;/a>&lt;/b>&lt;/i>&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;
         &lt;i>Credits.&lt;/i>&lt;br/&gt;&lt;br/&gt;Icons made by &lt;i>&lt;a href="https://www.freepik.com">Freepik&lt;/a>&lt;/i> and
         &lt;i>&lt;a href="https://www.flaticon.com/authors/wissawa-khamsriwath">Wissawa Khamsriwath&lt;/a>&lt;/i> from

@@ -1402,7 +1402,8 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
     private void showAboutMessageDialogFragment() {
         MessageDialogFragment messageDialogFragment =
                 MessageDialogFragment.newInstance(
-                        Html.fromHtml(getString(R.string.about_dialog_fragment_text)),
+                        Html.fromHtml(getString(R.string.about_dialog_fragment_text,
+                                getString(R.string.version_name))),
                         getString(R.string.about_dialog_fragment_title), true, MAIN_ACTIVITY_ABOUT_MESSAGE, EMPTY_STRING);
 
         messageDialogFragment.show(getSupportFragmentManager(),
