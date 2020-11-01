@@ -574,11 +574,8 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                     createSampleClassMenuItem.setVisible(true);
                 } else {
                     showShareAndDeleteMenuItems(true);
-                    if (mAdapter.getItemCount() == MAX_NUMBER_OF_STUDENTS_IN_A_CLASS) {
-                        showAddAndLoadStudentsMenuItems(false);
-                    } else {
-                        showAddAndLoadStudentsMenuItems(true);
-                    }
+                    showAddAndLoadStudentsMenuItems(
+                            mAdapter.getItemCount() != MAX_NUMBER_OF_STUDENTS_IN_A_CLASS);
                     createSampleClassMenuItem.setVisible(false);
                 }
             } else {
