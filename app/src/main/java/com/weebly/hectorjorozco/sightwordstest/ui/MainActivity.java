@@ -3,7 +3,6 @@ package com.weebly.hectorjorozco.sightwordstest.ui;
 import android.app.Activity;
 
 import androidx.core.content.res.ResourcesCompat;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.ActivityNotFoundException;
@@ -80,7 +79,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -392,32 +390,29 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
         final Context context = this;
         MainViewModel mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
-        mainViewModel.getStudents().observe(this, new Observer<List<StudentEntry>>() {
-            @Override
-            public void onChanged(@Nullable List<StudentEntry> studentEntries) {
-                if (studentEntries != null) {
-                    if (studentEntries.isEmpty()) {
-                        showEmptyListMessages(true, studentEntries.size());
-                        if (mMenu != null) {
-                            showShareAndDeleteMenuItems(false);
-                            showAddAndLoadStudentsMenuItems(true);
-                            mMenu.findItem(R.id.menu_main_action_create_sample_class).setVisible(true);
-                        }
-                        mAdapter.setStudentsListData(studentEntries);
-                    } else {
-                        showEmptyListMessages(false, studentEntries.size());
-                        if (mMenu != null) {
-                            showShareAndDeleteMenuItems(true);
-                            showAddAndLoadStudentsMenuItems(!(studentEntries.size() == MAX_NUMBER_OF_STUDENTS_IN_A_CLASS));
-                            mMenu.findItem(R.id.menu_main_action_create_sample_class).setVisible(false);
-                        }
-                        mAdapter.setStudentsListData(StudentsOrderUtils.
-                                UpdateStudentsListOrder(context, studentEntries));
+        mainViewModel.getStudents().observe(this, studentEntries -> {
+            if (studentEntries != null) {
+                if (studentEntries.isEmpty()) {
+                    showEmptyListMessages(true, studentEntries.size());
+                    if (mMenu != null) {
+                        showShareAndDeleteMenuItems(false);
+                        showAddAndLoadStudentsMenuItems(true);
+                        mMenu.findItem(R.id.menu_main_action_create_sample_class).setVisible(true);
                     }
-                    NumberOfStudentsUtils.setNumberOfStudentsOnSharedPreferences(
-                            MainActivity.this, studentEntries.size());
-                    WidgetProvider.updateWidgetWithStudentsInformation(context);
+                    mAdapter.setStudentsListData(studentEntries);
+                } else {
+                    showEmptyListMessages(false, studentEntries.size());
+                    if (mMenu != null) {
+                        showShareAndDeleteMenuItems(true);
+                        showAddAndLoadStudentsMenuItems(!(studentEntries.size() == MAX_NUMBER_OF_STUDENTS_IN_A_CLASS));
+                        mMenu.findItem(R.id.menu_main_action_create_sample_class).setVisible(false);
+                    }
+                    mAdapter.setStudentsListData(StudentsOrderUtils.
+                            UpdateStudentsListOrder(context, studentEntries));
                 }
+                NumberOfStudentsUtils.setNumberOfStudentsOnSharedPreferences(
+                        MainActivity.this, studentEntries.size());
+                WidgetProvider.updateWidgetWithStudentsInformation(context);
             }
         });
     }
@@ -598,46 +593,34 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        switch (item.getItemId()) {
-            case R.id.menu_main_action_sort:
-                showSortDialogFragment();
-                break;
-            case R.id.menu_main_action_share:
-                showShareDialogFragment();
-                break;
-            case R.id.menu_main_action_add_students:
-                showAddNewStudentUI();
-                break;
-            case R.id.menu_main_action_load_students:
-                showLoadStudentsNotificationDialogFragment();
-                break;
-            case R.id.menu_main_action_create_sample_class:
-                showCreateSampleClassConfirmationDialogFragment();
-                break;
-            case R.id.menu_main_action_delete:
-                showDeleteClassConfirmationDialogFragment();
-                break;
-            case R.id.menu_main_action_change:
-                showChangeTestDialogFragment();
-                break;
-            case R.id.menu_main_action_download:
-                showDownloadResourcesDialogFragment();
-                break;
-            case R.id.menu_main_action_sight_words_info:
-                showSightWordsInfoUI();
-                break;
-            case R.id.menu_main_action_help:
-                showHelpUI();
-                break;
-            case R.id.menu_main_action_feedback:
-                showFeedbackConfirmationDialogFragment();
-                break;
-            case R.id.menu_main_action_donate:
-                showDonateConfirmationDialogFragment();
-                break;
-            case R.id.menu_main_action_about:
-                showAboutMessageDialogFragment();
-        }
+        int itemId = item.getItemId();
+
+        if (itemId == R.id.menu_main_action_sort)
+            showSortDialogFragment();
+        else if (itemId == R.id.menu_main_action_share)
+            showShareDialogFragment();
+        else if (itemId == R.id.menu_main_action_add_students)
+            showAddNewStudentUI();
+        else if (itemId == R.id.menu_main_action_load_students)
+            showLoadStudentsNotificationDialogFragment();
+        else if (itemId == R.id.menu_main_action_create_sample_class)
+            showCreateSampleClassConfirmationDialogFragment();
+        else if (itemId == R.id.menu_main_action_delete)
+            showDeleteClassConfirmationDialogFragment();
+        else if (itemId == R.id.menu_main_action_change)
+            showChangeTestDialogFragment();
+        else if (itemId == R.id.menu_main_action_download)
+            showDownloadResourcesDialogFragment();
+        else if (itemId == R.id.menu_main_action_sight_words_info)
+            showSightWordsInfoUI();
+        else if (itemId == R.id.menu_main_action_help)
+            showHelpUI();
+        else if (itemId == R.id.menu_main_action_feedback)
+            showFeedbackConfirmationDialogFragment();
+        else if (itemId == R.id.menu_main_action_donate)
+            showDonateConfirmationDialogFragment();
+        else if (itemId == R.id.menu_main_action_about)
+            showAboutMessageDialogFragment();
 
         return super.onOptionsItemSelected(item);
     }
@@ -796,87 +779,84 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
 
     private List<Byte> loadStudentsToDB(final List<String> studentNames) {
 
-        Future<List<Byte>> loadStudentFuture = AppExecutors.getInstance().diskIO().submit(new Callable<List<Byte>>() {
-            @Override
-            public List<Byte> call() {
-                List<Byte> loadResults = new ArrayList<>();
-                String firstName;
-                String lastName;
-                byte loadResult;
-                boolean studentNameComplete;
+        Future<List<Byte>> loadStudentFuture = AppExecutors.getInstance().diskIO().submit(() -> {
+            List<Byte> loadResults = new ArrayList<>();
+            String firstName;
+            String lastName;
+            byte loadResult;
+            boolean studentNameComplete;
 
-                if (mAppDatabase != null) {
+            if (mAppDatabase != null) {
 
-                    int classSize = mAdapter.getItemCount();
-                    // Flag that indicates if the max number of students in the class has been reached when inserting students
-                    // to the Database
-                    boolean maxNumberOfStudentsReached = false;
+                int classSize = mAdapter.getItemCount();
+                // Flag that indicates if the max number of students in the class has been reached when inserting students
+                // to the Database
+                boolean maxNumberOfStudentsReached = false;
 
-                    // Get the first name and last name of each student in the CSV file and insert the student in the DB
-                    for (String studentName : studentNames) {
+                // Get the first name and last name of each student in the CSV file and insert the student in the DB
+                for (String studentName : studentNames) {
 
-                        if (studentName.contains(",")) {
-                            firstName = studentName.substring(0, studentName.indexOf(',')).trim();
-                            lastName = studentName.substring(studentName.indexOf(',') + 1).trim();
+                    if (studentName.contains(",")) {
+                        firstName = studentName.substring(0, studentName.indexOf(',')).trim();
+                        lastName = studentName.substring(studentName.indexOf(',') + 1).trim();
+                    } else {
+                        firstName = studentName.trim();
+                        lastName = EMPTY_STRING;
+                    }
+
+                    loadResult = STUDENT_NOT_LOADED_SUCCESSFULLY;
+                    studentNameComplete = true;
+
+                    if (firstName.isEmpty()) {
+                        studentNameComplete = false;
+                        if (lastName.isEmpty()) {
+                            loadResult = STUDENT_NAME_INCOMPLETE_NO_FIRST_NAME_NO_LAST_NAME;
                         } else {
-                            firstName = studentName.trim();
-                            lastName = EMPTY_STRING;
+                            loadResult = STUDENT_NAME_INCOMPLETE_NO_FIRST_NAME;
                         }
+                    } else if (lastName.isEmpty()) {
+                        studentNameComplete = false;
+                        loadResult = STUDENT_NAME_INCOMPLETE_NO_LAST_NAME;
+                    }
 
-                        loadResult = STUDENT_NOT_LOADED_SUCCESSFULLY;
-                        studentNameComplete = true;
+                    if (studentNameComplete) {
 
-                        if (firstName.isEmpty()) {
-                            studentNameComplete = false;
-                            if (lastName.isEmpty()) {
-                                loadResult = STUDENT_NAME_INCOMPLETE_NO_FIRST_NAME_NO_LAST_NAME;
-                            } else {
-                                loadResult = STUDENT_NAME_INCOMPLETE_NO_FIRST_NAME;
-                            }
-                        } else if (lastName.isEmpty()) {
-                            studentNameComplete = false;
-                            loadResult = STUDENT_NAME_INCOMPLETE_NO_LAST_NAME;
-                        }
+                        if (classSize > MAX_NUMBER_OF_STUDENTS_IN_A_CLASS - 1) {
+                            loadResult = MAX_CLASS_SIZE_EXCEEDED;
+                        } else {
 
-                        if (studentNameComplete) {
+                            firstName = WordUtils.capitalizeFully(firstName);
+                            lastName = WordUtils.capitalizeFully(lastName);
 
-                            if (classSize > MAX_NUMBER_OF_STUDENTS_IN_A_CLASS - 1) {
-                                loadResult = MAX_CLASS_SIZE_EXCEEDED;
-                            } else {
+                            final StudentEntry studentEntry = new StudentEntry(firstName, lastName,
+                                    STUDENT_WITH_NO_TESTS_GRADE,
+                                    TestTypeUtils.getDefaultTestTypeValueFromSharedPreferences(MainActivity.this),
+                                    new Date(), EMPTY_STRING);
 
-                                firstName = WordUtils.capitalizeFully(firstName);
-                                lastName = WordUtils.capitalizeFully(lastName);
-
-                                final StudentEntry studentEntry = new StudentEntry(firstName, lastName,
-                                        STUDENT_WITH_NO_TESTS_GRADE,
-                                        TestTypeUtils.getDefaultTestTypeValueFromSharedPreferences(MainActivity.this),
-                                        new Date(), EMPTY_STRING);
-
-                                try {
-                                    mAppDatabase.studentDao().insertStudent(studentEntry);
-                                    loadResult = STUDENT_LOADED_SUCCESSFULLY;
-                                    classSize++;
-                                    if (classSize == MAX_NUMBER_OF_STUDENTS_IN_A_CLASS) {
-                                        maxNumberOfStudentsReached = true;
-                                    }
-                                } catch (SQLiteConstraintException e) {
-                                    // If there was an error indicating the student is already in the DB
-                                    if (e.toString().contains(SQLITE_CONSTRAINT_UNIQUE_CODE)) {
-                                        loadResult = STUDENT_DUPLICATED;
-                                    }
-                                    Log.e(SIMPLE_NAME, Objects.requireNonNull(e.getMessage()));
+                            try {
+                                mAppDatabase.studentDao().insertStudent(studentEntry);
+                                loadResult = STUDENT_LOADED_SUCCESSFULLY;
+                                classSize++;
+                                if (classSize == MAX_NUMBER_OF_STUDENTS_IN_A_CLASS) {
+                                    maxNumberOfStudentsReached = true;
                                 }
+                            } catch (SQLiteConstraintException e) {
+                                // If there was an error indicating the student is already in the DB
+                                if (e.toString().contains(SQLITE_CONSTRAINT_UNIQUE_CODE)) {
+                                    loadResult = STUDENT_DUPLICATED;
+                                }
+                                Log.e(SIMPLE_NAME, Objects.requireNonNull(e.getMessage()));
                             }
                         }
-                        loadResults.add(loadResult);
                     }
-                    if (maxNumberOfStudentsReached) {
-                        loadResults.add(MAX_CLASS_SIZE_EXCEED_FLAG);
-                    }
-                    return loadResults;
-                } else {
-                    return null;
+                    loadResults.add(loadResult);
                 }
+                if (maxNumberOfStudentsReached) {
+                    loadResults.add(MAX_CLASS_SIZE_EXCEED_FLAG);
+                }
+                return loadResults;
+            } else {
+                return null;
             }
         });
 
@@ -1062,19 +1042,11 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                     mAdapter.removeStudent(studentToDeletePosition);
 
                     // Delete student from the students table
-                    AppExecutors.getInstance().diskIO().execute(new Runnable() {
-                        @Override
-                        public void run() {
-                            mAppDatabase.studentDao().deleteStudent(studentEntry);
-                        }
-                    });
+                    AppExecutors.getInstance().diskIO().execute(() ->
+                            mAppDatabase.studentDao().deleteStudent(studentEntry));
                     // Delete student test results from the test table
-                    AppExecutors.getInstance().diskIO().execute(new Runnable() {
-                        @Override
-                        public void run() {
-                            mAppDatabase.testDao().deleteTestsById(Objects.requireNonNull(studentEntry).getId());
-                        }
-                    });
+                    AppExecutors.getInstance().diskIO().execute(
+                            () -> mAppDatabase.testDao().deleteTestsById(Objects.requireNonNull(studentEntry).getId()));
                     if (mTablet) {
                         replaceFragmentOnContainer(new WordListsInformationFragment());
                     }
@@ -1096,19 +1068,11 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
                         mAdapter.removeStudent(selectedItemPositions.get(i));
 
                         // Delete student from the students table
-                        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                mAppDatabase.studentDao().deleteStudent(studentEntry);
-                            }
-                        });
+                        AppExecutors.getInstance().diskIO().execute(() ->
+                                mAppDatabase.studentDao().deleteStudent(studentEntry));
                         // Delete student test results from the test table
-                        AppExecutors.getInstance().diskIO().execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                mAppDatabase.testDao().deleteTestsById(Objects.requireNonNull(studentEntry).getId());
-                            }
-                        });
+                        AppExecutors.getInstance().diskIO().execute(() ->
+                                mAppDatabase.testDao().deleteTestsById(Objects.requireNonNull(studentEntry).getId()));
                     }
                     if (mTablet) {
                         replaceFragmentOnContainer(new WordListsInformationFragment());
@@ -1121,12 +1085,7 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
             case ConfirmationDialogFragment.MAIN_ACTIVITY_DELETE_CLASS:
                 if (answerYes) {
                     // Delete all tables from the database
-                    AppExecutors.getInstance().diskIO().execute(new Runnable() {
-                        @Override
-                        public void run() {
-                            mAppDatabase.clearAllTables();
-                        }
-                    });
+                    AppExecutors.getInstance().diskIO().execute(() -> mAppDatabase.clearAllTables());
                 }
                 break;
             case ConfirmationDialogFragment.MAIN_ACTIVITY_FEEDBACK:

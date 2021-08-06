@@ -109,7 +109,7 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <!-- When clicked will launch a fragment to add a new student -->
+    <!-- When clicked will launch a dialog asking if the user wants to save the test result -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/activity_test_fab"
         android:layout_width="wrap_content"
@@ -117,6 +117,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:tint="@android:color/white"
-        app:srcCompat="@drawable/ic_check_white_24dp" />
+        app:srcCompat="@drawable/ic_check_white_24dp"
+        android:contentDescription="Check mark to save test result" />
 
 </FrameLayout>
