@@ -1,5 +1,5 @@
 package com.weebly.hectorjorozco.sightwordstest.ui;
-
+// Test
 import android.app.Activity;
 
 import androidx.core.content.res.ResourcesCompat;
@@ -624,7 +624,6 @@ public class MainActivity extends AppCompatActivity implements StudentsListAdapt
 
         return super.onOptionsItemSelected(item);
     }
-
 
     // Helper method that download a resource on this device.
     private void downloadResource(String resourceUrl) {
