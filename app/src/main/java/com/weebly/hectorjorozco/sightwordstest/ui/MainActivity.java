@@ -1,5 +1,5 @@
 package com.weebly.hectorjorozco.sightwordstest.ui;
-// Test
+
 import android.app.Activity;
 
 import androidx.core.content.res.ResourcesCompat;
